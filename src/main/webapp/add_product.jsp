@@ -27,7 +27,7 @@
 <td><input type = "text" name = "price"></td>
 <td style="color:red;font-size:18px;"><e:error property="phone"></e:error></td>
 </tr>
-
+<tr>
 <td style="font-size:28px;">Image</td>
 <td><input type = "file" name = "image"></td>
 <td style="color:red;font-size:18px;"><e:error property="photo"></e:error></td>

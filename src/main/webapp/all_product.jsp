@@ -71,11 +71,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!-- top-header -->
 <!-- logo-cart -->
-<div class="header_top">
+<div style= "background-color:#f65a5b;" class="header_top">
 	<div class="container">
-		<div class="logo">
-		 	<a href="index.html"><p style="color:red;font-size:28px;">&nbsp; &nbsp; Udaan Store</p></a>			 
-		</div>
+		<marquee scrollamount="5"
+direction="left"
+behavior="scroll">
+&nbsp; &nbsp; <font style="color:white;font-size:22px;font-weight: bold;">Udaan Creations</font> &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+<img src="images/udaan.jpg" /><br>
+
+</marquee>
 		
 		<div class="clearfix"></div>	
 	</div>
