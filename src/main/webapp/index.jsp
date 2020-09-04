@@ -207,7 +207,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													<i class="fa fa-star blue-star" aria-hidden="true"></i>
 													<i class="fa fa-star gray-star" aria-hidden="true"></i>
 												</div>
-													<h4>$ ${product.price} <span>$55.00</span></h4>
+													<h4>$ ${product.price} </h4>
 											</div>
 											</div>
 											</figure>
@@ -221,33 +221,48 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</c:forEach></div>
 	<div role="tabpanel" class="tab-pane fade" id="tours" aria-labelledby="tours-tab">
 							<div class="agile-tp">
-								<h5>This week</h5>
+								<h5>Sale</h5>
 								<p class="w3l-ad">We've pulled together all our advertised offers into one place, so you won't miss out on a great deal.</p>
 							</div>
-							<div class="agile_top_brands_grids">
-								<div class="col-md-4 top_brand_left">
-									<div class="hover14 column">
-										<div class="agile_top_brand_left_grid">
-											<div class="agile_top_brand_left_grid_pos">
+							
+							<c:forEach items="${PRODUCTS}" var="product" >
+				<div class="agile_top_brands_grids">
+					<div class="col-md-3 top_brand_left-1">
+						<div class="hover14 column">
+			
+							<div class="agile_top_brand_left_grid">
+								
+								<div class="agile_top_brand_left_grid_pos">
 												<img src="images/offer.png" alt=" " class="img-responsive" />
+											</div>	
+								<div class="agile_top_brand_left_grid1">
+									<figure>
+										<div class="snipcart-item block">
+											<div class="snipcart-thumb">
+												<a href="products.html"><img title=" " alt=" " src="Product Images/${product.image}" width="150px" height="150px"></a>		
+												<p>${product.name}</p>
+												<div class="stars">
+													<i class="fa fa-star blue-star" aria-hidden="true"></i>
+													<i class="fa fa-star blue-star" aria-hidden="true"></i>
+													<i class="fa fa-star blue-star" aria-hidden="true"></i>
+													<i class="fa fa-star blue-star" aria-hidden="true"></i>
+													<i class="fa fa-star gray-star" aria-hidden="true"></i>
+												</div>
+													<h4>$ ${product.price} <span>$55.00</span></h4>
 											</div>
-											<div class="agile_top_brand_left_grid1">
-												<figure>
-													<div class="snipcart-item block" >
-														<div class="snipcart-thumb">
-															<a href="products.html"><img title=" " alt=" " src="images/7.png" /></a>		
-															<p>Sona-masoori-rice</p>
-															<div class="stars">
-																<i class="fa fa-star blue-star" aria-hidden="true"></i>
-																<i class="fa fa-star blue-star" aria-hidden="true"></i>
-																<i class="fa fa-star blue-star" aria-hidden="true"></i>
-																<i class="fa fa-star blue-star" aria-hidden="true"></i>
-																<i class="fa fa-star gray-star" aria-hidden="true"></i>
-															</div>
-															<h4>$35.99 <span>$55.00</span></h4>
-														</div>
-						</div></figure>
-						</div></div></div></div></div></div></div></div></div></div></div>
+											</div>
+											</figure>
+											</div>
+											
+											</div>
+											
+											</div>
+											</div>
+											</div>
+											</c:forEach></div>
+							</div></div></div></div></div>
+							
+							
 	<div class="footer">
 		<div class="container">
 			<div class="col-md-3 footer-grid">

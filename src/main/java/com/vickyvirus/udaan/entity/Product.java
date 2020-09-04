@@ -2,6 +2,7 @@ package com.vickyvirus.udaan.entity;
 
 import java.io.File;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,9 +11,10 @@ import javax.persistence.Id;
 @Entity
 public class Product {
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int productId;
+	private long productId;
 	private String name;
 	private String quantity;
 	private String price;
@@ -20,7 +22,7 @@ public class Product {
 	
 	
 	
-	public int getProductId() {
+	public long getProductId() {
 		return productId;
 	}
 	public void setProductId(int productId) {
