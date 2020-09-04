@@ -16,7 +16,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer>{
 	@Query("from Product where product_id != ?1")
 	List<Product> find(Integer id);
 	
-	@Transactional
+	
 	@Query(nativeQuery = true,value = "Select * from product ORDER BY product_id DESC LIMIT 7")
 	List<Product> getLatestProducts();
 }
