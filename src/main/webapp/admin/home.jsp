@@ -99,7 +99,7 @@
               <span>Products</span>
               </a>
             <ul class="sub">
-              <li><a href="general.html">Add Products</a></li>
+              <li><a href="adminAddProduct">Add Products</a></li>
               <li><a href="buttons.html">Update Products</a></li>
               <li><a href="panels.html">Delete Products</a></li>
               

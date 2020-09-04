@@ -15,48 +15,42 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long productId;
-	private String name;
-	private String quantity;
-	private String price;
-	private String image;
-	
-	
-	
+	private String productName;
+	private String productQuantity;
+	private String productPrice;
+	private String productImage;
 	public long getProductId() {
 		return productId;
 	}
-	public void setProductId(int productId) {
+	public void setProductId(long productId) {
 		this.productId = productId;
 	}
-	public String getName() {
-		return name;
+	public String getProductName() {
+		return productName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
-	public String getQuantity() {
-		return quantity;
+	public String getProductQuantity() {
+		return productQuantity;
 	}
-	public void setQuantity(String quantity) {
-		this.quantity = quantity;
+	public void setProductQuantity(String productQuantity) {
+		this.productQuantity = productQuantity;
 	}
-	public String getPrice() {
-		return price;
+	public String getProductPrice() {
+		return productPrice;
 	}
-	public void setPrice(String price) {
-		this.price = price;
+	public void setProductPrice(String productPrice) {
+		this.productPrice = productPrice;
+	}
+	public String getProductImage() {
+		return productImage;
+	}
+	public void setProductImage(String productImage) {
+		this.productImage = productImage;
 	}
 	
 	
-	
-	
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
-	}
-
 	
 	
 }

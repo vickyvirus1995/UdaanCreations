@@ -36,21 +36,21 @@ public class AdminController {
 	}
 	
 	
-	@RequestMapping("adminAddProduct")
+	@RequestMapping("admin/adminAddProduct")
 	public String getAddProduct()
 	{
-		return "adminAddProduct";
+		return "admin/adminAddProduct";
 	}
 	
-	@RequestMapping(value= "addProduct",method = RequestMethod.POST )
-	public RedirectView addProduct(@RequestParam("name")String name,
-			@RequestParam("quantity")String quantity,@RequestParam("price")String price,
-			@RequestParam("image") MultipartFile image,HttpServletRequest request)
+	@RequestMapping(value= "admin/addProduct",method = RequestMethod.POST )
+	public RedirectView addProduct(@RequestParam("productName")String productName,
+			@RequestParam("productQuantity")String productQuantity,@RequestParam("productPrice")String productPrice,
+			@RequestParam("productImage") MultipartFile productImage,HttpServletRequest request)
 	{
 		
-		adminProductApplication.addProduct(name, quantity, price, image);
+		adminProductApplication.addProduct(productName, productQuantity, productPrice, productImage);
 		String contextPath = request.getContextPath();
-	    return new RedirectView(contextPath + "/adminAddProduct");
+	    return new RedirectView(contextPath + "adminAddProduct");
 		
 	}
 	

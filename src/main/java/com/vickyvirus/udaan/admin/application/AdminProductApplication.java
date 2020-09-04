@@ -23,13 +23,13 @@ public class AdminProductApplication {
 	
 	
 	
-	public Product addProduct(String name,String quantity,String price,MultipartFile image)
+	public Product addProduct(String productName,String productQuantity,String productPrice,MultipartFile productImage)
 	{
 		try {
 					
-			byte[] imageInByte = image.getBytes();
+			byte[] imageInByte = productImage.getBytes();
 			
-			Path path = Paths.get(UPLOADED_FOLDER + image.getOriginalFilename());
+			Path path = Paths.get(UPLOADED_FOLDER + productImage.getOriginalFilename());
 			Files.write(path, imageInByte);
 		}
 		catch(Exception e)
@@ -37,10 +37,10 @@ public class AdminProductApplication {
 			e.printStackTrace();
 		}
 			Product product = new Product();
-			product.setName(name);
-			product.setQuantity(quantity);
-			product.setPrice(price);
-			product.setImage(image.getOriginalFilename());
+			product.setProductName(productName);
+			product.setProductQuantity(productQuantity);
+			product.setProductPrice(productPrice);
+			product.setProductImage(productImage.getOriginalFilename());
 			
 			Product check_product = adminProductDaoImpl.addProduct(product);
 			
@@ -55,10 +55,10 @@ public class AdminProductApplication {
 
 	public Product addProductForEdit(String name, String quantity, String price, MultipartFile image) {
 		Product product = new Product();
-		product.setName(name);
-		product.setQuantity(quantity);
-		product.setPrice(price);
-		product.setImage(image.getOriginalFilename());
+		product.setProductName(name);
+		product.setProductQuantity(quantity);
+		product.setProductPrice(price);
+		product.setProductImage(image.getOriginalFilename());
 		
 		return product;
 	}

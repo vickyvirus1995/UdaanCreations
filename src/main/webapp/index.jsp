@@ -198,8 +198,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<figure>
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
-												<a href="products.html"><img title=" " alt=" " src="Product Images/${product.image}" width="150px" height="150px"></a>		
-												<p>${product.name}</p>
+												<a href="products.html"><img title=" " alt=" " src="Product Images/${product.productImage}" width="150px" height="150px"></a>		
+												<p>${product.productName}</p>
 												<div class="stars">
 													<i class="fa fa-star blue-star" aria-hidden="true"></i>
 													<i class="fa fa-star blue-star" aria-hidden="true"></i>
@@ -207,7 +207,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													<i class="fa fa-star blue-star" aria-hidden="true"></i>
 													<i class="fa fa-star gray-star" aria-hidden="true"></i>
 												</div>
-													<h4>$ ${product.price} </h4>
+													<h4>$ ${product.productPrice} </h4>
 											</div>
 											</div>
 											</figure>
@@ -239,8 +239,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<figure>
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
-												<a href="products.html"><img title=" " alt=" " src="Product Images/${product.image}" width="150px" height="150px"></a>		
-												<p>${product.name}</p>
+												<a href="products.html"><img title=" " alt=" " src="Product Images/${product.productImage}" width="150px" height="150px"></a>		
+												<p>${product.productName}</p>
 												<div class="stars">
 													<i class="fa fa-star blue-star" aria-hidden="true"></i>
 													<i class="fa fa-star blue-star" aria-hidden="true"></i>
@@ -248,7 +248,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													<i class="fa fa-star blue-star" aria-hidden="true"></i>
 													<i class="fa fa-star gray-star" aria-hidden="true"></i>
 												</div>
-													<h4>$ ${product.price} <span>$55.00</span></h4>
+													<h4>$ ${product.productPrice} <span>$55.00</span></h4>
 											</div>
 											</div>
 											</figure>
