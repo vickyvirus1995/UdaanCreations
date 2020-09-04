@@ -1,16 +1,16 @@
-package com.vickyvirus.udaan.service;
+package com.vickyvirus.udaan.admin.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.vickyvirus.udaan.dao.ProductDao;
+import com.vickyvirus.udaan.admin.dao.AdminProductDao;
 import com.vickyvirus.udaan.entity.Product;
 import com.vickyvirus.udaan.repository.ProductRepository;
 
 @Service
-public class ProductService implements ProductDao{
+public class AdminProductDaoImpl implements AdminProductDao{
 
 	@Autowired
 	private ProductRepository productRepository;
@@ -29,6 +29,18 @@ public class ProductService implements ProductDao{
 	public List<Product> getAllProduct() {
 		List<Product> allProducts = productRepository.findAll();
 		return allProducts;
+	}
+
+	@Override
+	public Product getProductById(Integer product_id) {
+		return productRepository.findById(product_id).orElse(null);
+		
+	}
+
+	@Override
+	public List<Product> getAllProductsExceptSelected(Integer product_id) {
+		List<Product> products = productRepository.find(product_id);
+		return products;
 	}
 
 }

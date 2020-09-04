@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -70,15 +72,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!-- top-header -->
 <!-- logo-cart -->
-<div style= "background-color:#f65a5b;" class="header_top">
-	<div class="container">
-		<marquee scrollamount="5"
-direction="left"
-behavior="scroll">
-&nbsp; &nbsp; <font style="color:white;font-size:22px;font-weight: bold;">Udaan Creations</font> &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-<img src="images/udaan.jpg" /><br>
-
-</marquee>
+<div  class="header_top">
+	<div class="container" style= "background-color:#f65a5b;">
+		
+<header   style ="background:  #22242a;width: 100%" >
+<marquee>
+      <!--logo start-->
+      <a href="home.jsp" class="logo" style="
+    font-size: 24px;
+    color: #f2f2f2;
+    float: left;
+    margin-top: 15px;
+    text-transform: uppercase;"><b style="font-weight: 900;">Udaan <span style="color: #4ECDC4;">Creations</span></b></a>
+      <!--logo end-->
+      </marquee>
+      
+    </header>
 		
 		<div class="clearfix"></div>	
 	</div>
@@ -161,67 +170,38 @@ behavior="scroll">
 		<div class="container">
 			<div class="cate-left">
 				<h3>New Arrivals  &nbsp; <span></span></h3>
-			</div>
-			<div class="cate-right">
-				<!-- slider -->
-				<ul id="flexiselDemo1">			
-					<li>
-						<div class="sliderfig-grid">
-							<img src="images/a.jpg" alt=" " class="img-responsive" />
-						</div>
-					</li>
-					<li>
-						<div class="sliderfig-grid">
-							<img src="images/b.jpeg" alt=" " class="img-responsive" />
-						</div>
-					</li>
-					<li>
-						<div class="sliderfig-grid">
-							<img src="images/d.jpeg" alt=" " class="img-responsive" />
-						</div>
-					</li>
-					<li>
-						<div class="sliderfig-grid">
-							<img src="images/c.jpeg" alt=" " class="img-responsive" />
-						</div>
-					</li>
-					</ul>
+			</div></div></div>
+			<div class="products">
+		<div class="container">
+			<div class="products-grids">
+				<div class="col-md-8 products-grid-left">
+						<c:forEach items="${Products}" var="lists">
+					<div class="products-grid-lft">
 			
-					<script type="text/javascript">
-							$(window).load(function() {
-								$("#flexiselDemo1").flexisel({
-									visibleItems: 4,
-									animationSpeed: 1000,
-									autoPlay: true,
-									autoPlaySpeed: 3000,    		
-									pauseOnHover: false,
-									
-									enableResponsiveBreakpoints: true,
-									responsiveBreakpoints: { 
-										portrait: { 
-											changePoint:480,
-											visibleItems: 3
-										}, 
-										landscape: { 
-											changePoint:640,
-											visibleItems:4
-										},
-										tablet: { 
-											changePoint:768,
-											visibleItems: 3
-										}
-									}
-								});
+						<div class="products-grd">
+						
+       										<div class="p-one simpleCart_shelfItem prd">
+								<a href="single.html">
+										<img width="70px;" height="70px;" src="../Product Images/${lists.image}" alt="" class="img-responsive" />
+										
+								</a>
+								<h4>${lists.name}</h4>
+								<p><a class="item_add" > <span class=" item_price valsa">${lists.price} Rs<br>Remaining Quantity : ${lists.quantity}</span></a></p>
 								
-							});
-					</script>
-					<script type="text/javascript" src="js/jquery.flexisel.js"></script>
-			</div>
-			
+									<a href="single.html"></a>
+								
+							</div>	
+		
+      </div>
+		       </div>
+</c:forEach>
+						</div>
+						</div>
+						</div>
+						</div>
+					
 <!-- //slider -->
 
-		</div>
-	</div>
 	
 	<div class="footer">
 		<div class="container">

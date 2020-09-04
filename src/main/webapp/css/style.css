@@ -24,6 +24,19 @@ body a:hover{
 	background:#f65a5b;
     padding: 10px 0;
 }
+
+.header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1002;
+}
+
+.black-bg {
+    background: #22242a;
+    border-bottom: 1px solid #393d46;
+}
+
 .header_top{
 	padding:1em 0;
 }
