@@ -22,6 +22,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //for-mobile-apps -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/jspstyle.css" rel="stylesheet" type="text/css" media="all" />
 <!-- js -->
 <script src="js/jquery-1.11.1.min.js"></script>
 <!-- //js -->
@@ -166,43 +167,87 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 <!-- //banner -->
 <!-- cate -->
-	<div class="cate">
-		<div class="container">
-			<div class="cate-left">
-				<h3>New Arrivals  &nbsp; <span></span></h3>
-			</div></div></div>
-			<div class="products">
-		<div class="container">
-			<div class="products-grids">
-				<div class="col-md-8 products-grid-left">
-						<c:forEach items="${Products}" var="lists">
-					<div class="products-grid-lft">
-			
-						<div class="products-grd">
-						
-       										<div class="p-one simpleCart_shelfItem prd">
-								<a href="single.html">
-										<img width="70px;" height="70px;" src="../Product Images/${lists.image}" alt="" class="img-responsive" />
-										
-								</a>
-								<h4>${lists.name}</h4>
-								<p><a class="item_add" > <span class=" item_price valsa">${lists.price} Rs<br>Remaining Quantity : ${lists.quantity}</span></a></p>
-								
-									<a href="single.html"></a>
-								
-							</div>	
-		
-      </div>
-		       </div>
-</c:forEach>
-						</div>
-						</div>
-						</div>
-						</div>
-					
-<!-- //slider -->
+	<!-- //slider -->
 
-	
+	<div class="top-brands">
+		<div class="container">
+		<h2>Top selling offers</h2>
+			<div class="grid_3 grid_5">
+				<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+					<ul id="myTab" class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active"><a href="#expeditions" id="expeditions-tab" role="tab" data-toggle="tab" aria-controls="expeditions" aria-expanded="true">Latest Arrivals</a></li>
+						<li role="presentation"><a href="#tours" role="tab" id="tours-tab" data-toggle="tab" aria-controls="tours">Todays Offers</a></li>
+					</ul>
+					<div id="myTabContent" class="tab-content">
+						<div role="tabpanel" class="tab-pane fade in active" id="expeditions" aria-labelledby="expeditions-tab">
+							<div class="agile-tp">
+								<h5>Advertised this week</h5>
+								<p class="w3l-ad">We've pulled together all our latest product into one place, so you won't miss out on a great deal.</p>
+							</div>
+							<c:forEach items="${PRODUCTS}" var="product" >
+				<div class="agile_top_brands_grids">
+					<div class="col-md-3 top_brand_left-1">
+						<div class="hover14 column">
+			
+							<div class="agile_top_brand_left_grid">
+								<div class="agile_top_brand_left_grid_pos">
+									
+								</div>
+									
+								<div class="agile_top_brand_left_grid1">
+									<figure>
+										<div class="snipcart-item block">
+											<div class="snipcart-thumb">
+												<a href="products.html"><img title=" " alt=" " src="Product Images/${product.image}" width="150px" height="150px"></a>		
+												<p>${product.name}</p>
+												<div class="stars">
+													<i class="fa fa-star blue-star" aria-hidden="true"></i>
+													<i class="fa fa-star blue-star" aria-hidden="true"></i>
+													<i class="fa fa-star blue-star" aria-hidden="true"></i>
+													<i class="fa fa-star blue-star" aria-hidden="true"></i>
+													<i class="fa fa-star gray-star" aria-hidden="true"></i>
+												</div>
+													<h4>$ ${product.price} <span>$55.00</span></h4>
+											</div>
+											</div>
+											</figure>
+											</div>
+											
+											</div>
+											
+											</div>
+											</div>
+											</div>
+											</c:forEach></div>
+	<div role="tabpanel" class="tab-pane fade" id="tours" aria-labelledby="tours-tab">
+							<div class="agile-tp">
+								<h5>This week</h5>
+								<p class="w3l-ad">We've pulled together all our advertised offers into one place, so you won't miss out on a great deal.</p>
+							</div>
+							<div class="agile_top_brands_grids">
+								<div class="col-md-4 top_brand_left">
+									<div class="hover14 column">
+										<div class="agile_top_brand_left_grid">
+											<div class="agile_top_brand_left_grid_pos">
+												<img src="images/offer.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="agile_top_brand_left_grid1">
+												<figure>
+													<div class="snipcart-item block" >
+														<div class="snipcart-thumb">
+															<a href="products.html"><img title=" " alt=" " src="images/7.png" /></a>		
+															<p>Sona-masoori-rice</p>
+															<div class="stars">
+																<i class="fa fa-star blue-star" aria-hidden="true"></i>
+																<i class="fa fa-star blue-star" aria-hidden="true"></i>
+																<i class="fa fa-star blue-star" aria-hidden="true"></i>
+																<i class="fa fa-star blue-star" aria-hidden="true"></i>
+																<i class="fa fa-star gray-star" aria-hidden="true"></i>
+															</div>
+															<h4>$35.99 <span>$55.00</span></h4>
+														</div>
+						</div></figure>
+						</div></div></div></div></div></div></div></div></div></div></div>
 	<div class="footer">
 		<div class="container">
 			<div class="col-md-3 footer-grid">

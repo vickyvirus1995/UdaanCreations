@@ -5,19 +5,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.vickyvirus.udaan.admin.application.AdminProductApplication;
+import com.vickyvirus.udaan.application.ProductApplication;
 
 @Controller
 public class HomeController {
 	
 	@Autowired
-	private AdminProductApplication adminProductApplication;
+	private ProductApplication productApplication;
 	
 	@RequestMapping("")
 	public ModelAndView getHome()
 	{
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("Products",adminProductApplication.getAllProducts());
+		modelAndView.addObject("PRODUCTS",productApplication.getLatestProducts());
 		modelAndView.setViewName("index");
 		return modelAndView;
 		

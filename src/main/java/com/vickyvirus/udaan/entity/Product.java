@@ -12,18 +12,19 @@ public class Product {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int product_id;
+	private int productId;
 	private String name;
 	private String quantity;
 	private String price;
 	private String image;
 	
 	
-	public int getProduct_id() {
-		return product_id;
+	
+	public int getProductId() {
+		return productId;
 	}
-	public void setProduct_id(int product_id) {
-		this.product_id = product_id;
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
 	public String getName() {
 		return name;
@@ -53,13 +54,7 @@ public class Product {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	@Override
-	public String toString() {
-		return "Product [product_id=" + product_id + ", name=" + name + ", quantity=" + quantity + ", price=" + price
-				+ ", image=" + image + "]";
-	}
 
-	
 	
 	
 }
