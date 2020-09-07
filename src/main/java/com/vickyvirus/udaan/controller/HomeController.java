@@ -18,7 +18,7 @@ public class HomeController {
 	@RequestMapping("")
 	public RedirectView getHome()
 	{
-		return new RedirectView("/home");
+		return new RedirectView("home");
 		
 	}
 
