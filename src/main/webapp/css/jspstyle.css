@@ -22,7 +22,7 @@ html, body{
 
 #offer{
 	padding-left:16px;
-	font-size:1.1em;
+	font-size:1.0em;
 	font-weight:bold;
 animation:blinking 1s infinite;
 }
