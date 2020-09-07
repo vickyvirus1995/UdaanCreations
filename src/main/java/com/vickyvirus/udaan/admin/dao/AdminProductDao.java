@@ -10,8 +10,11 @@ public interface AdminProductDao {
 	
 	public List<Product> getAllProduct();
 	
-	public List<Product> getAllProductsExceptSelected(Integer product_id);
+	public List<Product> getAllProductsExceptSelected(Integer productId);
 	
-	public Product getProductById(Integer product_id);
+	public Product getProductById(Integer productId);
 	
+	public void updateProduct(Product product);
+	
+	public void deleteProduct(Integer productId);
 }

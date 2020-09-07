@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <head>
   <meta charset="utf-8">
@@ -24,7 +25,10 @@
   <link href="css/homestyle.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet">
   <script src="lib/chart-master/Chart.js"></script>
+  
+  <link href="css/jspstyle.css" rel="stylesheet"  media="all" />
   <link href="css/main.css" rel="stylesheet" media="all">
+  
   <!-- =======================================================
     Template Name: Dashio
     Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
@@ -78,39 +82,39 @@
           <li class="mt">
             <a  href="home.jsp">
               <i class="fa fa-dashboard"></i>
-              <span>Dashboard</span>
+              <span style="font-size: 18px;font-weight: lighter;"">Dashboard</span>
               </a>
           </li>
          
-          <li class="sub-menu">
-            <a class="active" href="javascript:;">
+          <li class="sub-menu" style="font-size: 12px;">
+            <a href="javascript:;">
               <i class="fa fa-desktop"></i>
-              <span>Products</span>
+              <span style="font-size: 18px;font-weight: lighter;"">Products</span>
               </a>
-            <ul class="sub">
-              <li><a href="adminAddProducts">Add Products</a></li>
-              <li><a href="adminUpdateProducts">Update Products</a></li>
-              <li><a href="panels.html">Delete Products</a></li>
+            <ul class="sub" style="font-size: 16px;">
+              <li style="font-size: 16px;"><a href="adminAddProducts"><label style="font-size: 17px;">Add Products</label></a></li>
+              <li><a href="adminUpdateProducts"><label style="font-size: 17px;">Update Products</label></a></li>
+              <li><a href="adminDeleteProducts"><label style="font-size: 17px;">Delete Products</label></a></li>
               
             </ul>
           </li>
            <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-desktop"></i>
-              <span>Sale</span>
+              <span style="font-size:18px;font-weight:lighter;">Sale</span>
               </a>
             <ul class="sub">
-              <li><a href="adminAddSales">Add Sale</a></li>
-              <li><a href="adminUpdateSales">Update Sale</a></li>
-              <li><a href="adminDeleteSales">Delete Sale</a></li>
+              <li><a href="adminAddSales"><label style="font-size: 17px;">Add Sale</label></a></li>
+              <li><a href="adminUpdateSales"><label style="font-size: 17px;">Update Sale</label></a></li>
+              <li><a href="adminDeleteSales"><label style="font-size: 17px;">Delete Sale</label></a></li>
               
             </ul>
           </li>
          
          <li class="sub-menu">
-            <a href="adminAllProducts">
+            <a class="active" href="adminAllProducts">
               <i class="fa fa-desktop"></i>
-              <span>All Products</span>
+              <span style="font-size: 18px;font-weight: lighter;">All Products</span>
               </a>
               </li>
               
@@ -118,63 +122,59 @@
         <!-- sidebar menu end-->
       </div>
     </aside>
+      
         
 <section id="main-content" >
       <section class="wrapper">
         <div class="row">
           <div class="col-lg-9 main-chart">
             <!--CUSTOM CHART START -->
-            
-<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
-        <div class="wrapper wrapper--w790" >
-            <div class="card card-5">
-                <div class="card-heading">
-                    <h2 class="title">Udaan Add Product Database</h2>
-                </div>
-                <div class="card-body" style="background: white; height:550px;">
-                    <form method="POST" action="addProduct" enctype = "multipart/form-data">
-                        <div class="form-row">
-                            <div class="name">Product Name</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="text" name="productName">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="name">Quantity</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="text" name="productQuantity">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="name">Price</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="text" name="productPrice">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="name">Upload Image</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="file" name="productImage">
-                                </div>
-                            </div>
-                        </div>
-                                                <div>
-                            <button class="btn btn--radius-2 btn--red" type="submit">Add Product</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div></div></section></section>
+
+<div class="products">
+		<div class="container">
+			
+			<div class="col-md-8 products-right">
+				
+				<div id="myTabContent" class="tab-content" style="padding-top: 0px;">
+					
+				
+							
+				<c:forEach items="${PRODUCTS}" var="product" >
+				<div class="agile_top_brands_grids" >
+					<div class="col-md-4 top_brand_left">
+						<div class="hover14 column">
+							<div class="agile_top_brand_left_grid" >
+								
+								<div class="agile_top_brand_left_grid1">
+									<figure>
+										<div class="snipcart-item block">
+											<div class="snipcart-thumb">
+												<a href="single.html"><img title=" " alt=" " src="../Product Images/${product.productImage}" width="120px" height="120px"></a>		
+												<p style="font-size: 18px;font-weight: bolder;background: white;color:red;">${product.productName}</p>
+												<h4 style="color:green;font-size: 18px;">$ ${product.productPrice} <span></span></h4>
+																	<h4 style="color:purple; font-size: 18px;font-weight: bold;">Qty : ${product.productQuantity} <span></span></h4>
+											</div><br>
+					
+											
+										</div>
+									</figure>
+								</div>
+							</div>
+						</div>
+					</div>
+
+	</div></c:forEach>
+	
+	</div></div></div>
+</div>
+
+
     </section>
+</section></section>    
+    
+    
+    
+    
     <!--sidebar end-->
     <!-- **********************************************************************************************************************************************************
         MAIN CONTENT

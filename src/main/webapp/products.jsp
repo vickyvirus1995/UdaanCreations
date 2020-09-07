@@ -100,8 +100,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		 <div class="menu_sec">
 		 <!-- start header menu -->
 		<ul class="megamenu skyblue">
-			<li class="active grid"><a class="color1" href="home">Home</a></li>
-			<li class="grid"><a class="color1" href="products">Products</a></li>
+			<li class="grid"><a class="color1" href="home">Home</a></li>
+			<li class="active grid"><a class="color1" href="products">Products</a></li>
 			<li class="grid"><a class="color1" href="sale">Sale</a></li>
 			<li class="grid"><a class="color1" href="#">About Us</a></li>
 			<li class="grid"><a class="color1" href="contact.html">Contact</a></li>	
@@ -120,151 +120,69 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!---->
 <!-- banner -->
-	<div class="banner">
-		<div class="container">
-<!-- Slider-starts-Here -->
-				<script src="js/responsiveslides.min.js"></script>
-				 <script>
-				    // You can also use "$(window).load(function() {"
-				    $(function () {
-				      // Slideshow 4
-				      $("#slider3").responsiveSlides({
-				        auto: true,
-				        pager: false,
-				        nav: true,
-				        speed: 500,
-				        
-				        namespace: "callbacks",
-				        before: function () {
-				          $('.events').append("<li>before event fired.</li>");
-				        },
-				        after: function () {
-				          $('.events').append("<li>after event fired.</li>");
-				        }
-				      });
-				
-				    });
-				  </script>
-			<!--//End-slider-script -->
-			<div  id="top" class="callbacks_container">
-				<ul class="rslides" id="slider3">
-					
-					<li>
-						<div class="banner-info">
-							<div class="banner-info1">
-							<div class="banner-inf">
-									<h1 style="color:yellow;">Ganesh Chaturthi Offer</h1>
-									<p style="color:white;font-size:16px;">Special 30% discount on all products on bulk order. Terms and condtion applied</p>
-								</div>
-						</div>
-					</div>
-					</li>
-					
-				</ul>
-			</div>
-		</div>
-	</div>
 	
 <!-- //banner -->
 <!-- cate -->
 	<!-- //slider -->
 
-	<div class="top-brands">
+
+
+<div class="products">
 		<div class="container">
-		<h2>Top selling offers</h2>
-			<div class="grid_3 grid_5">
-				<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-					<ul id="myTab" class="nav nav-tabs" role="tablist">
-						<li role="presentation" class="active"><a href="#expeditions" id="expeditions-tab" role="tab" data-toggle="tab" aria-controls="expeditions" aria-expanded="true">Latest Arrivals</a></li>
-						<li role="presentation"><a href="#tours" role="tab" id="tours-tab" data-toggle="tab" aria-controls="tours">Todays Offers</a></li>
-					</ul>
-					<div id="myTabContent" class="tab-content">
-						<div role="tabpanel" class="tab-pane fade in active" id="expeditions" aria-labelledby="expeditions-tab">
-							<div class="agile-tp">
-								<h5>Advertised this week</h5>
-								<p class="w3l-ad">We've pulled together all our latest product into one place, so you won't miss out on a great deal.</p>
-							</div>
-							
-				<div class="agile_top_brands_grids">
-					<c:forEach items="${PRODUCTS}" var="product" >
-					<div class="col-md-3 top_brand_left-1">
-						<div class="hover14 column">
 			
-							<div class="agile_top_brand_left_grid">
+			<div class="col-md-8 products-right">
+				<div class="products-right-grid">
+					<div class="products-right-grids">
+						<div class="sorting">
+							<select id="country" onchange="change_country(this.value)" class="frm-field required sect">
+								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Default sorting</option>
+								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sort by popularity</option> 
+								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sort by average rating</option>					
+								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sort by price</option>								
+							</select>
+						</div>
+						<div class="sorting-left">
+							<select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
+								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Item on page 9</option>
+								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Item on page 18</option> 
+								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Item on page 32</option>					
+								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>All</option>								
+							</select>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div></div></div>
+				<div class = "container">
+				<div id="myTabContent" class="tab-content" style="padding-top: 0px;">
+					
+							
+				
+				<div class="agile_top_brands_grids" >
+					<c:forEach items="${PRODUCTS}" var="product" >
+					<div class="col-md-3 column productbox" style="padding-top: 10px;">
+						<div class="hover14 column">
+							<div class="agile_top_brand_left_grid" >
 								<div class="agile_top_brand_left_grid_pos">
 									
 								</div>
-									
 								<div class="agile_top_brand_left_grid1">
 									<figure>
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
-												<a href="products.html"><img title=" " alt=" " src="Product Images/${product.productImage}" width="150px" height="150px"></a>		
-													<p style="font-size: 18px;font-weight: bolder;">${product.productName}</p>
+												<a href="single.jsp"><img title=" " alt=" " src="Product Images/${product.productImage}" width="200px" height="160px"></a>		
+												<p style="font-size: 18px;font-weight: bolder;">${product.productName}</p>
 												<h4 style="color:green;font-size: 18px;">$ ${product.productPrice} <span></span></h4>
-											
-											</div>
-											</div>
-											</figure>
 											</div>
 											
-											</div>
-											
-											</div>
-											
-											</div>
-											</c:forEach>
-											</div>
-											</div>
-	<div role="tabpanel" class="tab-pane fade" id="tours" aria-labelledby="tours-tab">
-							<div class="agile-tp">
-								<h5>Sale</h5>
-								<p class="w3l-ad">We've pulled together all our advertised offers into one place, so you won't miss out on a great deal.</p>
+										</div>
+									</figure>
+								</div>
 							</div>
-							
-							
-				<div class="agile_top_brands_grids">
-					<c:forEach items="${SALESPRODUCTS}" var="saleProduct" >
-					<div class="col-md-3 top_brand_left-1">
-						<div class="hover14 column">
-			
-							<div class="agile_top_brand_left_grid">
-								
-								<div class="agile_top_brand_left_grid_pos">
-												<img src="images/offer.png" alt=" " class="img-responsive" />
-											</div>	
-								<div class="agile_top_brand_left_grid1">
-									<figure>
-										<div class="snipcart-item block">
-											<div class="snipcart-thumb">
-												<a href="products.html"><img title=" " alt=" " src="Product Images/${saleProduct.productImage}" width="150px" height="150px"></a>		
-												<p style="font-size: 18px;font-weight: bolder;">${saleProduct.productName}</p>
-												<c:choose>
-            										<c:when test="${not empty saleProduct.productDiscountedPrice}">
-												<h4 style="color:green;font-size: 18px;">$ ${saleProduct.productDiscountedPrice} <span>${saleProduct.productPrice}</span></h4>
-												</c:when>
-												<c:otherwise>
-												<h4 style="color:green;font-size: 18px;">$ ${saleProduct.productPrice} </h4>	
-												</c:otherwise>
-												</c:choose>
-											
-												
-											
-												<span id = "offer">${saleProduct.productOffer}</span>
-											</div>
-											</div>
-											</figure>
-											</div>
-											
-											</div>
-											
-											</div>
-											</div></c:forEach>
-											</div>
-											</div>
-							</div></div></div></div></div>
-							
-							
+						</div>
+					</div>
+	</c:forEach></div></div></div></div>
+</div>
+
 	<div class="footer">
 		<div class="container">
 			<div class="col-md-3 footer-grid">

@@ -43,4 +43,16 @@ public class AdminProductDaoImpl implements AdminProductDao{
 		return products;
 	}
 
+	@Override
+	public void updateProduct(Product product) {
+		productRepository.save(product);
+		
+	}
+
+	@Override
+	public void deleteProduct(Integer productId) {
+		productRepository.deleteById(productId);
+		
+	}
+
 }

@@ -75,22 +75,10 @@
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered">${USER}</h5>
           <li class="mt">
-            <a class="active" href="index.html">
+            <a class="active" href="home.jsp">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-desktop"></i>
-              <span>Category</span>
-              </a>
-            <ul class="sub">
-              <li><a href="general.html">Add Category</a></li>
-              <li><a href="buttons.html">Update Category</a></li>
-              <li><a href="panels.html">Delete Category</a></li>
-              
-            </ul>
           </li>
          
           <li class="sub-menu">
@@ -99,12 +87,25 @@
               <span>Products</span>
               </a>
             <ul class="sub">
-              <li><a href="adminAddProduct">Add Products</a></li>
-              <li><a href="buttons.html">Update Products</a></li>
-              <li><a href="panels.html">Delete Products</a></li>
+              <li><a href="adminAddProducts">Add Products</a></li>
+              <li><a href="adminUpdateProducts">Update Products</a></li>
+              <li><a href="adminDeleteProducts">Delete Products</a></li>
               
             </ul>
           </li>
+           <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-desktop"></i>
+              <span>Sale</span>
+              </a>
+            <ul class="sub">
+              <li><a href="adminAddSales">Add Sale</a></li>
+              <li><a href="adminUpdateSales">Update Sale</a></li>
+              <li><a href="adminDeleteSales">Delete Sale</a></li>
+              
+            </ul>
+          </li>
+         
          <li class="sub-menu">
             <a href="adminAllProducts">
               <i class="fa fa-desktop"></i>

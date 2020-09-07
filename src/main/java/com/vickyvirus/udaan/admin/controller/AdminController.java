@@ -36,7 +36,7 @@ public class AdminController {
 	}
 	
 	
-	@RequestMapping("admin/adminAddProduct")
+	@RequestMapping("admin/adminAddProducts")
 	public String getAddProduct()
 	{
 		return "admin/adminAddProduct";
@@ -44,49 +44,198 @@ public class AdminController {
 	
 	@RequestMapping(value= "admin/addProduct",method = RequestMethod.POST )
 	public RedirectView addProduct(@RequestParam("productName")String productName,
-			@RequestParam("productQuantity")String productQuantity,@RequestParam("productPrice")String productPrice,
+			@RequestParam("productQuantity")String productQuantity,@RequestParam("productPrice")Integer productPrice,
 			@RequestParam("productImage") MultipartFile productImage,HttpServletRequest request)
 	{
 		
 		adminProductApplication.addProduct(productName, productQuantity, productPrice, productImage);
 		String contextPath = request.getContextPath();
-	    return new RedirectView(contextPath + "adminAddProduct");
+	    return new RedirectView(contextPath + "adminAddProducts");
 		
 	}
 	
 	
+	
+	@RequestMapping("admin/adminUpdateProducts")
+	public ModelAndView getAdminEditProducts()
+	{
+		ModelAndView modelAndView = new ModelAndView();
+		
+		modelAndView.addObject("PRODUCTS",adminProductApplication.getAllProducts());
+		modelAndView.setViewName("admin/adminUpdateProduct");
+		return modelAndView;
+		
+	}
+	
+	@RequestMapping("admin/updateProductData")
+	public ModelAndView getProductDataForEdit(@RequestParam("productId") Integer productId)
+	{
+		ModelAndView modelAndView = new ModelAndView();
+		
+		modelAndView.addObject("SELECTEDPRODUCT",adminProductApplication.getProductById(productId.intValue()));
+		modelAndView.addObject("PRODUCTS",adminProductApplication.getAllProductsExceptSelected(productId));
+		modelAndView.setViewName("admin/adminUpdateProduct");
+		return modelAndView;
+		
+	}
+	
+	@RequestMapping(value= "admin/updateProduct",method = RequestMethod.POST )
+	public RedirectView updateProduct(@RequestParam("productId") Integer productId,@RequestParam("productName")String productName,
+			@RequestParam("productQuantity")String productQuantity,@RequestParam("productPrice")Integer productPrice,
+			@RequestParam("productImage") MultipartFile productImage,HttpServletRequest request)
+	{
+		adminProductApplication.updateProduct(productId,productName, productQuantity, productPrice, productImage);
+		
+		String contextPath = request.getContextPath();
+	    return new RedirectView(contextPath + "adminUpdateProducts");
+		
+	}
+	
+
+	@RequestMapping(value= "admin/deleteProduct",method = RequestMethod.POST )
+	public RedirectView deleteProduct(@RequestParam("productId") Integer productId,HttpServletRequest request)
+	{
+		adminProductApplication.deleteProduct(productId);
+		
+		String contextPath = request.getContextPath();
+	    return new RedirectView(contextPath + "adminDeleteProducts");
+		
+	}
+	
+	@RequestMapping("admin/adminDeleteProducts")
+	public ModelAndView getAdminDeleteProduct()
+	{
+		ModelAndView modelAndView = new ModelAndView();
+		
+		modelAndView.addObject("PRODUCTS",adminProductApplication.getAllProducts());
+		modelAndView.setViewName("admin/adminDeleteProduct");
+		return modelAndView;
+		
+	}
+	
+	@RequestMapping("admin/deleteProductData")
+	public ModelAndView getProductDataForDelete(@RequestParam("productId") Integer productId)
+	{
+		ModelAndView modelAndView = new ModelAndView();
+		
+		modelAndView.addObject("SELECTEDPRODUCT",adminProductApplication.getProductById(productId.intValue()));
+		modelAndView.addObject("PRODUCTS",adminProductApplication.getAllProductsExceptSelected(productId));
+		modelAndView.setViewName("admin/adminDeleteProduct");
+		return modelAndView;
+		
+	}
+	
+	
+	@RequestMapping("admin/adminAddSales")
+	public ModelAndView getAdminSales()
+	{
+		ModelAndView modelAndView = new ModelAndView();
+		
+		modelAndView.addObject("PRODUCTS",adminProductApplication.getAllProducts());
+		modelAndView.setViewName("admin/adminAddSale");
+		return modelAndView;
+		
+	}
+	
+	@RequestMapping("admin/addSaleData")
+	public ModelAndView getProductDataForSale(@RequestParam("productId") Integer productId)
+	{
+		ModelAndView modelAndView = new ModelAndView();
+		
+		modelAndView.addObject("SELECTEDPRODUCT",adminProductApplication.getProductById(productId.intValue()));
+		modelAndView.addObject("PRODUCTS",adminProductApplication.getAllProductsExceptSelected(productId));
+		modelAndView.setViewName("admin/adminAddSale");
+		return modelAndView;
+		
+	}
+	
+
+	@RequestMapping(value= "admin/saveSaleData",method = RequestMethod.POST )
+	public RedirectView saveSaleData(@RequestParam("productOffer") String productOffer,@RequestParam("productName")String productName,
+			@RequestParam("productDiscountedPrice")Integer productDiscountedPrice,
+			@RequestParam("productImage") String productImage,@RequestParam("productPrice") Integer productPrice,
+			HttpServletRequest request)
+	{
+		adminProductApplication.saveSaleProduct(productName, productPrice,productDiscountedPrice, productImage,productOffer);
+		
+		String contextPath = request.getContextPath();
+	    return new RedirectView(contextPath + "adminAddSales");
+		
+	}
+	
+	
+	@RequestMapping("admin/adminUpdateSales")
+	public ModelAndView getSalesData()
+	{
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("PRODUCTS",adminProductApplication.getAllSalesData());
+		modelAndView.setViewName("admin/adminUpdateSale");
+		return modelAndView;
+	}
+	
+	@RequestMapping("admin/getSelectedSaleData")
+	public ModelAndView getSelectedSaleData(@RequestParam("productId") Integer productId)
+	{
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("SELECTEDSALE",adminProductApplication.getSelectedSale(productId));
+		modelAndView.addObject("PRODUCTS",adminProductApplication.getAllSalesDataExceptSelected(productId));
+		modelAndView.setViewName("admin/adminUpdateSale");
+		return modelAndView;
+	
+	}
+	
+	@RequestMapping(value= "admin/updateSaleData",method = RequestMethod.POST )
+	public RedirectView updateSaleData(@RequestParam("productId") Integer productId,@RequestParam("productOffer") String productOffer,@RequestParam("productName")String productName,
+			@RequestParam("productDiscountedPrice")Integer productDiscountedPrice,
+			@RequestParam("productImage") String productImage,@RequestParam("productPrice") Integer productPrice,
+			HttpServletRequest request)
+	{
+		adminProductApplication.updateSaleProduct(productId,productName, productPrice,productDiscountedPrice, productImage,productOffer);
+		
+		String contextPath = request.getContextPath();
+	    return new RedirectView(contextPath + "adminUpdateSales");
+		
+	}
+	
+	@RequestMapping("admin/adminDeleteSales")
+	public ModelAndView getSalesDataDelete()
+	{
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("PRODUCTS",adminProductApplication.getAllSalesData());
+		modelAndView.setViewName("admin/adminDeleteSale");
+		return modelAndView;
+	}
+	
+	@RequestMapping("admin/getSelectedSaleDataDelete")
+	public ModelAndView getSelectedSaleDataDelete(@RequestParam("productId") Integer productId)
+	{
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("SELECTEDSALE",adminProductApplication.getSelectedSale(productId));
+		modelAndView.addObject("PRODUCTS",adminProductApplication.getAllSalesDataExceptSelected(productId));
+		modelAndView.setViewName("admin/adminDeleteSale");
+		return modelAndView;
+	
+	}
+	
+	@RequestMapping(value= "admin/deleteSaleData",method = RequestMethod.POST )
+	public RedirectView deleteSale(@RequestParam("productId") Integer productId,HttpServletRequest request)
+	{
+		adminProductApplication.deleteSaleData(productId);
+		
+		String contextPath = request.getContextPath();
+	    return new RedirectView(contextPath + "adminDeleteSales");
+		
+	}
 	
 	@RequestMapping("admin/adminAllProducts")
 	public ModelAndView getAdminAllProducts()
 	{
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.addObject("Products",adminProductApplication.getAllProducts());
-		modelAndView.setViewName("admin/adminAllProducts");
+		modelAndView.addObject("PRODUCTS",adminProductApplication.getAllProducts());
+		modelAndView.setViewName("admin/adminAllProduct");
 		return modelAndView;
 		
 	}
 	
-	@RequestMapping("/adminEditProducts")
-	public ModelAndView getAdminEditProducts()
-	{
-		ModelAndView modelAndView = new ModelAndView();
-		
-		modelAndView.addObject("product",adminProductApplication.getAllProducts());
-		modelAndView.setViewName("adminEditProduct");
-		return modelAndView;
-		
-	}
 	
-	@RequestMapping("/editProductDetails")
-	public ModelAndView getAdminEditProductsDetails(@RequestParam("product_id") Integer product_id)
-	{
-		ModelAndView modelAndView = new ModelAndView();
-		
-		modelAndView.addObject("editProduct",adminProductApplication.getProductById(product_id));
-		modelAndView.addObject("product",adminProductApplication.getAllProductsExceptSelected(product_id));
-		modelAndView.setViewName("adminEditProduct");
-		return modelAndView;
-		
-	}
-
 }

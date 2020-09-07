@@ -9,23 +9,6 @@ html, body{
 	font-family: 'Open Sans', sans-serif;
 	background:#ffffff;
 }
-
-@keyframes blinking {
-	0%{color : blue;
-	}
-	100%{color: red;
-	}
-											
-} 
-
-
-
-#offer{
-	padding-left:16px;
-	font-size:1.2em;
-	font-weight:bold;
-animation:blinking 1s infinite;
-}
 ul li,ol li{
 	font-size:14px;
 }
@@ -1491,11 +1474,11 @@ input#amount {
 }
 .new-products-grid-left{
 	float:left;
-	width:65%;
+	width:35%;
 }
 .new-products-grid-right{
-	float:left;
-	width:90%;
+	float:right;
+	width:60%;
 }
 /*-- //products --*/
 /*-- about --*/
@@ -1679,10 +1662,7 @@ h3.w3_agile_header:after,h2.w3_agile_header:after{
 .events {
 	list-style: none;
 }
-.callbacks_container {
-	float: left;
-	width: 100%;
-}
+
 .callbacks {
 	position: relative;
 	list-style: none;

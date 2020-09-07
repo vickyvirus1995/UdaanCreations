@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -21,6 +22,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //for-mobile-apps -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/jspstyle.css" rel="stylesheet" type="text/css" media="all" />
+
 <!-- js -->
 <script src="js/jquery-1.11.1.min.js"></script>
 <!-- //js -->
@@ -71,15 +74,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!-- top-header -->
 <!-- logo-cart -->
-<div style= "background-color:#f65a5b;" class="header_top">
-	<div class="container">
-		<marquee scrollamount="5"
-direction="left"
-behavior="scroll">
-&nbsp; &nbsp; <font style="color:white;font-size:22px;font-weight: bold;">Udaan Creations</font> &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-<img src="images/udaan.jpg" /><br>
-
-</marquee>
+<div  class="header_top">
+	<div class="container" style= "background-color:#f65a5b;">
+		
+<header   style ="background:  #22242a;width: 100%" >
+<marquee>
+      <!--logo start-->
+      <a href="home.jsp" class="logo" style="
+    font-size: 24px;
+    color: #f2f2f2;
+    float: left;
+    margin-top: 15px;
+    text-transform: uppercase;"><b style="font-weight: 900;">Udaan <span style="color: #4ECDC4;">Creations</span></b></a>
+      <!--logo end-->
+      </marquee>
+      
+    </header>
 		
 		<div class="clearfix"></div>	
 	</div>
@@ -92,12 +102,13 @@ behavior="scroll">
 		 <!-- start header menu -->
 		<ul class="megamenu skyblue">
 			<li class="grid"><a class="color1" href="home">Home</a></li>
-			<li class="active grid"><a class="color1" href="allProducts">Products</a></li>
-			<li class="grid"><a class="color1" href="#">Sale</a></li>
+			<li class="grid"><a class="color1" href="products">Products</a></li>
+			<li class="active grid"><a class="color1" href="sale">Sale</a></li>
 			<li class="grid"><a class="color1" href="#">About Us</a></li>
 			<li class="grid"><a class="color1" href="contact.html">Contact</a></li>	
-			<li class="grid"><a class="color1" href="#">Tutorial</a></li>								
-		</ul>  
+			<li class="grid"><a class="color1" href="#">Tutorial</a></li>
+			
+		</ul> 
 			<div class="search">
 				 <form>
 					<input type="text" value="" placeholder="Search...">
@@ -108,39 +119,82 @@ behavior="scroll">
 		 </div>
 	  </div>
 </div>
-<!-- products -->
-	<div class="products">
+<!---->
+<!-- banner -->
+	
+<!-- //banner -->
+<!-- cate -->
+	<!-- //slider -->
+
+
+
+<div class="products">
 		<div class="container">
-			<div class="products-grids">
-				<div class="col-md-8 products-grid-left">
-						<c:forEach items="${Products}" var="lists">
-					<div class="products-grid-lft">
 			
-						<div class="products-grd">
+			<div class="col-md-8 products-right">
+				<div class="products-right-grid">
+					<div class="products-right-grids">
+						<div class="sorting">
+							<select id="country" onchange="change_country(this.value)" class="frm-field required sect">
+								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Default sorting</option>
+								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sort by popularity</option> 
+								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sort by average rating</option>					
+								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sort by price</option>								
+							</select>
+						</div>
+						<div class="sorting-left">
+							<select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
+								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Item on page 9</option>
+								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Item on page 18</option> 
+								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Item on page 32</option>					
+								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>All</option>								
+							</select>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div></div></div>
+				<div class="container">
+				<div id="myTabContent" class="tab-content" style="padding-top: 0px;">
+					
 						
-       										<div class="p-one simpleCart_shelfItem prd">
-								<a href="single.html">
-										<img src="../Product Images/${lists.image}" alt="" class="img-responsive" />
-										<div class="mask">
-											<span>Quick View</span>
-										</div>
-								</a>
-								<h4>${lists.name}</h4>
-								<p><a class="item_add" > <span class=" item_price valsa">${lists.price} Rs<br>Remaining Quantity : ${lists.quantity}</span></a></p>
-								<div class="pro-grd">
-									<a href="single.html">10% Off</a>
+				 
+				
+				<div class="agile_top_brands_grids"  >
+					<c:forEach items="${SALESPRODUCTS}" var="saleProduct" >
+					<div class="col-md-3 column productbox" style="padding-top: 10px;">
+						<div class="hover14 column">
+							<div class="agile_top_brand_left_grid" >
+								<div class="agile_top_brand_left_grid_pos">
+									<img src="images/offer.png" alt=" " class="img-responsive" />
 								</div>
-							</div>	
-		
-      </div>
-		       </div>
-</c:forEach>
+								<div class="agile_top_brand_left_grid1" >
+									<figure>
+										<div class="snipcart-item block">
+											<div class="snipcart-thumb">
+												<a href="single.html"><img title=" " alt=" " src="Product Images/${saleProduct.productImage}" width="200px" height="160px"></a>		
+												<p style="font-size: 18px;font-weight: bolder;">${saleProduct.productName}</p>
+												<c:choose>
+            										<c:when test="${not empty saleProduct.productDiscountedPrice}">
+												<h4 style="color:green;font-size: 18px;">$ ${saleProduct.productDiscountedPrice} <span>${saleProduct.productPrice}</span></h4>
+												</c:when>
+												<c:otherwise>
+												<h4 style="color:green;font-size: 18px;">$ ${saleProduct.productPrice} </h4>	
+												</c:otherwise>
+												</c:choose>
+												
+											<span  id = "offer">${saleProduct.productOffer}</span>
+											</div>
+											
+										</div>
+									</figure>
+								</div>
+							</div>
 						</div>
-						</div>
-						</div>
-						</div>
-						
-						<div class="footer">
+					</div>
+	</c:forEach></div></ul></div></div></div>
+</div></div>
+
+	<div class="footer">
 		<div class="container">
 			<div class="col-md-3 footer-grid">
 				<h6>Information</h6>
@@ -162,8 +216,5 @@ behavior="scroll">
 <!-- for bootstrap working -->
 		<script src="js/bootstrap.js"> </script>
 <!-- //for bootstrap working -->
-
-</body>
-</html>
 </body>
 </html>

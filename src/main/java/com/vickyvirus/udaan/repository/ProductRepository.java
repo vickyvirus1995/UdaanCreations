@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import com.vickyvirus.udaan.admin.entity.Sale;
 import com.vickyvirus.udaan.entity.Product;
 
 @Repository
@@ -19,6 +21,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer>{
 	
 	@Query(nativeQuery = true,value = "Select * from product ORDER BY product_id DESC LIMIT 7")
 	List<Product> getLatestProducts();
+
 }
 
 
