@@ -22,7 +22,7 @@ public class HomeController {
 		
 	}
 
-	@RequestMapping("home")
+	@RequestMapping("/home")
 	public ModelAndView getHomePage()
 	{
 		ModelAndView modelAndView = new ModelAndView();
