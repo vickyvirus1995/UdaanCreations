@@ -113,8 +113,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<!-- copyright -->
 		<div class="copyright">
-			<h2>&copy; 2019 Triple Forms. All rights reserved | Design by
-				<a href="http://w3layouts.com" target="_blank">W3layouts</a>
+			<h2>&copy;  All rights reserved | Design by Vicky Poojari
+				
 			</h2>
 		</div>
 		<!-- //copyright -->
