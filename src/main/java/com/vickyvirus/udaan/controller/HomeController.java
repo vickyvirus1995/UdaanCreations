@@ -73,7 +73,7 @@ public class HomeController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("SELECTEDRECORDS","9");
 		modelAndView.addObject("SORTTYPE","Default Sorting");
-		modelAndView.addObject("PRODUCTS",productApplication.getAllProducts("2"));
+		modelAndView.addObject("PRODUCTS",productApplication.getAllProducts("9"));
 		modelAndView.setViewName("products");
 		return modelAndView;
 	}
