@@ -109,8 +109,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
 		</ul> 
 			<div class="search">
-				 <form>
-					<input type="text" value="" placeholder="Search...">
+				 <form action="searchProduct" method="get">
+					<input type="text"  placeholder="Search..." name = "searchKeyword">
 					<input type="submit" value="">
 					</form>
 			</div>

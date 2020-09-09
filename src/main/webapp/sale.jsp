@@ -110,8 +110,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
 		</ul> 
 			<div class="search">
-				 <form>
-					<input type="text" value="" placeholder="Search...">
+				 <form action="searchProduct" method="get">
+					<input type="text"  placeholder="Search..." name = "searchKeyword">
 					<input type="submit" value="">
 					</form>
 			</div>
@@ -134,26 +134,63 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-8 products-right">
 				<div class="products-right-grid">
 					<div class="products-right-grids">
+					<form action="sortSalesProductsByType" method="post" name ="sortType">
 						<div class="sorting">
-							<select id="country" onchange="change_country(this.value)" class="frm-field required sect">
+							<select id="country" name = "sortType" onchange="document.sortType.submit();" class="frm-field required sect">
+								<c:choose>
+								<c:when test="${SORTTYPE == 'Default Sorting'}">
+								<option selected value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Default sorting</option>
+								</c:when>
+								<c:otherwise>
 								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Default sorting</option>
-								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sort by popularity</option> 
-								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sort by average rating</option>					
-								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sort by price</option>								
+								</c:otherwise>
+								</c:choose>
+								<c:choose>
+								<c:when test="${SORTTYPE == 'Sort By Popularity'}">
+								<option selected value="Sort By Popularity"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sort by popularity</option> 
+								</c:when>
+								<c:otherwise>
+								<option value="Sort By Popularity"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sort by popularity</option>
+								</c:otherwise>
+								</c:choose>			
+								<c:choose>
+								<c:when  test="${SORTTYPE == 'Sort By Price'}">
+								<option selected value="Sort By Price"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sort by price</option>								
+								</c:when>
+								<c:otherwise>
+								<option value="Sort By Price"><i class="fa fa-arrow-right" aria-hidden="true"></i>Sort by price</option>
+								</c:otherwise>
+								</c:choose>
 							</select>
 						</div>
+						</form>
+						<form action="sortSalesProductsByRecords" method="post" name ="numberOfRecords">
 						<div class="sorting-left">
-							<select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
-								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Item on page 9</option>
-								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Item on page 18</option> 
-								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>Item on page 32</option>					
-								<option value="null"><i class="fa fa-arrow-right" aria-hidden="true"></i>All</option>								
+						
+							<select id ="country1" name="numberOfRecord" onchange="document.numberOfRecords.submit();" class="frm-field required sect" value="${SELECTEDRECORDS}">
+								<c:choose>
+								<c:when test = "${SELECTEDRECORDS == '9'}"><option selected value="9"><i class="fa fa-arrow-right" aria-hidden="true"></i>Item on page 09</option></c:when>
+								 <c:otherwise><option  value="9"><i class="fa fa-arrow-right" aria-hidden="true"></i>Item on page 09</option></c:otherwise>
+							</c:choose>
+								<c:choose>	
+								<c:when test = "${SELECTEDRECORDS == '18'}"><option selected value="18"><i class="fa fa-arrow-right" aria-hidden="true"></i>Item on page 18</option></c:when>
+								 <c:otherwise><option  value="18"><i class="fa fa-arrow-right" aria-hidden="true"></i>Item on page 18</option></c:otherwise>
+								</c:choose>
+								<c:choose>
+								<c:when test = "${SELECTEDRECORDS == '32'}"><option selected value="32"><i class="fa fa-arrow-right" aria-hidden="true"></i>Item on page 32</option></c:when>
+								 <c:otherwise><option  value="32"><i class="fa fa-arrow-right" aria-hidden="true"></i>Item on page 32</option></c:otherwise>
+								</c:choose>
+								<c:choose>					
+								<c:when test = "${SELECTEDRECORDS == 'all'}"><option selected value="all"><i class="fa fa-arrow-right" aria-hidden="true"></i>Item on page All</option></c:when>
+								 <c:otherwise><option  value="all"><i class="fa fa-arrow-right" aria-hidden="true"></i>Item on page All</option></c:otherwise>
+							</c:choose>									
 							</select>
-						</div>
+							<input type="submit" value="" hidden="true"> 
+						</div></form>
 						<div class="clearfix"> </div>
 					</div>
-				</div></div></div>
-				<div class="container">
+				</div>
+				
 				<div id="myTabContent" class="tab-content" style="padding-top: 0px;">
 					
 						
@@ -161,17 +198,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				
 				<div class="agile_top_brands_grids"  >
 					<c:forEach items="${SALESPRODUCTS}" var="saleProduct" >
-					<div class="col-md-3 column productbox" style="padding-top: 10px;">
+					<div class="col-md-4 top_brand_left" style="padding-top: 10px;">
 						<div class="hover14 column">
 							<div class="agile_top_brand_left_grid" >
 								<div class="agile_top_brand_left_grid_pos">
 									<img src="images/offer.png" alt=" " class="img-responsive" />
 								</div>
-								<div class="agile_top_brand_left_grid1" >
+								<div class="agile_top_brand_left_grid1"  >
 									<figure>
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
-												<a href="single.html"><img title=" " alt=" " src="Product Images/${saleProduct.productImage}" width="200px" height="160px"></a>		
+												<a href="single.html"><img title=" " alt=" " src="Product Images/${saleProduct.productImage}" width="130px" height="130px"></a>		
 												<p style="font-size: 18px;font-weight: bolder;">${saleProduct.productName}</p>
 												<c:choose>
             										<c:when test="${not empty saleProduct.productDiscountedPrice}">

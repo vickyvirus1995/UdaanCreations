@@ -19,4 +19,10 @@ public interface SaleRepository extends JpaRepository<Sale, Integer>{
 	@Query(nativeQuery = true,value = "Select * from sale ORDER BY product_id DESC LIMIT 7")
 	List<Sale> getLatestSalesProducts();
 
+
+	@Query(nativeQuery = true,value = "Select * from sale LIMIT ?1")
+	List<Sale> getAllSalesProducts(Integer i);
+	
+	List<Sale> findAllByOrderByProductIdDesc();
+
 }

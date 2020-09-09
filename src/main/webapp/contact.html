@@ -68,19 +68,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!-- top-header -->
 <!-- logo-cart -->
-<div style= "background-color:#f65a5b;" class="header_top">
-	<div class="container">
-		<marquee scrollamount="5"
-direction="left"
-behavior="scroll">
-&nbsp; &nbsp; <font style="color:white;font-size:22px;font-weight: bold;">Udaan Creations</font> &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-<img src="images/udaan.jpg" /><br>
-
-</marquee>
+<div  class="header_top">
+	<div class="container" style= "background-color:#f65a5b;">
+		
+<header   style ="background:  #22242a;width: 100%" >
+<marquee>
+      <!--logo start-->
+      <a href="home.jsp" class="logo" style="
+    font-size: 24px;
+    color: #f2f2f2;
+    float: left;
+    margin-top: 15px;
+    text-transform: uppercase;"><b style="font-weight: 900;">Udaan <span style="color: #4ECDC4;">Creations</span></b></a>
+      <!--logo end-->
+      </marquee>
+      
+    </header>
 		
 		<div class="clearfix"></div>	
 	</div>
 </div>
+		
 <!-- //logo-cart -->
 <!------>
 <div class="mega_nav">
@@ -89,15 +97,14 @@ behavior="scroll">
 		 <!-- start header menu -->
 		<ul class="megamenu skyblue">
 			<li class="grid"><a class="color1" href="home">Home</a></li>
-			<li class="grid"><a class="color1" href="allProducts">Products</a></li>
-			<li class="grid"><a class="color1" href="#">Sale</a></li>
+			<li class="grid"><a class="color1" href="products">Products</a></li>
+			<li class="grid"><a class="color1" href="sale">Sale</a></li>
 			<li class="grid"><a class="color1" href="#">About Us</a></li>
 			<li class="active grid"><a class="color1" href="contact.html">Contact</a></li>	
 			<li class="grid"><a class="color1" href="#">Tutorial</a></li>								
-		</ul>  
-			<div class="search">
-				 <form>
-					<input type="text" value="" placeholder="Search...">
+		</ul>  <div class="search">
+				 <form action="searchProduct" method="get">
+					<input type="text"  placeholder="Search..." name = "searchKeyword">
 					<input type="submit" value="">
 					</form>
 			</div>

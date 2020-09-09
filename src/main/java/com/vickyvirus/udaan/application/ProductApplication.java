@@ -23,9 +23,9 @@ public class ProductApplication {
 		return productDao.getLatestProducts();
 	}
 
-	public List<Product> getAllProducts() {
+	public List<Product> getAllProducts(String numberOfRecords) {
 		
-		return productDao.getAllProducts();
+		return productDao.getAllProducts(numberOfRecords);
 	}
 	
 	public List<Sale> getLatestSalesProducts() {
@@ -33,9 +33,42 @@ public class ProductApplication {
 		return salesProductDao.getLatestSalesProducts();
 	}
 
-	public List<Sale> getAllSalesProducts() {
-		return salesProductDao.getAllSalesProducts();
+	public List<Sale> getAllSalesProducts(String numberOfRecords) {
+		return salesProductDao.getAllSalesProducts(numberOfRecords);
 		
+	}
+
+	public List<Product> getSearchProducts(String searchKeyword) {
+		
+		return productDao.getSearchProducts(searchKeyword);
+	}
+
+	
+
+	public List<Product> sortByType(String sortType) {
+		if(sortType.equals("Sort By Price"))
+		{
+			return productDao.sortByPrice();
+		}
+		else if(sortType.equals("Sort By Popularity"))
+		{
+			return productDao.sortByPopularity();
+		}
+		
+		return null;
+	}
+
+	public List<Sale> sortSalesProductsByType(String sortType) {
+		if(sortType.equals("Sort By Price"))
+		{
+			return salesProductDao.sortByPrice();
+		}
+		else if(sortType.equals("Sort By Popularity"))
+		{
+			return salesProductDao.sortByPopularity();
+		}
+		
+		return null;
 	}
 
 	

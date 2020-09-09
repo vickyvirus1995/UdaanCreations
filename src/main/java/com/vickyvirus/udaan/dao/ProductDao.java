@@ -9,7 +9,13 @@ public interface ProductDao {
 
 	public List<Product> getLatestProducts();
 
-	public List<Product> getAllProducts();
+	public List<Product> getAllProducts(String numberOfRecords);
+
+	public List<Product> getSearchProducts(String searchKeyword);
+
+	public List<Product> sortByPrice();
+
+	public List<Product> sortByPopularity();
 
 	
 }

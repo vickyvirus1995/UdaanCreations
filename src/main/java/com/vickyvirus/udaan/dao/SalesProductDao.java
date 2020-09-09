@@ -8,5 +8,9 @@ public interface SalesProductDao {
 
 	public List<Sale> getLatestSalesProducts();
 
-	public List<Sale> getAllSalesProducts();
+	public List<Sale> getAllSalesProducts(String numberOfRecords);
+
+	public List<Sale> sortByPrice();
+
+	public List<Sale> sortByPopularity();
 }
