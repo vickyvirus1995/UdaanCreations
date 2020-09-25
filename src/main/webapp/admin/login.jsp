@@ -57,11 +57,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<h3 class="legend">Login Here</h3>
 							<div class="input">
 								<span class="fa fa-envelope-o" aria-hidden="true"></span>
-								<input type="text" placeholder="Username" name="username" required />
+								<input type="text"  placeholder="Username" name="username" required />
 							</div>
 							<div class="input">
 								<span class="fa fa-key" aria-hidden="true"></span>
-								<input type="password" placeholder="Password" name="password" required />
+								<input type="password"  placeholder="Password" name="password" required />
 							</div>
 							<button type="submit" class="btn submit">Login</button>
 							<a href="#" class="bottom-text-w3ls">Forgot Password?</a>
@@ -72,11 +72,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<input type="radio" name="sections" id="option2">
 					<label for="option2" class="icon-left-w3pvt"><span class="fa fa-pencil-square" aria-hidden="true"></span>Register</label>
 					<article>
-						<form action="#" method="post">
+						<form action="addAdmin" method="post">
 							<h3 class="legend">Register Here</h3>
 							<div class="input">
 								<span class="fa fa-user-o" aria-hidden="true"></span>
-								<input type="text" placeholder="Username" name="name" required />
+								<input type="text" placeholder="Username" name="username" required />
 							</div>
 							<div class="input">
 								<span class="fa fa-key" aria-hidden="true"></span>
@@ -84,7 +84,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							</div>
 							<div class="input">
 								<span class="fa fa-key" aria-hidden="true"></span>
-								<input type="password" placeholder="Confirm Password" name="password" required />
+								<input type="password" placeholder="Confirm Password"  required />
 							</div>
 							<button type="submit" class="btn submit">Register</button>
 						</form>

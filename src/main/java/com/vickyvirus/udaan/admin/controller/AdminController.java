@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import com.vickyvirus.udaan.admin.application.AdminApplication;
 import com.vickyvirus.udaan.admin.application.AdminProductApplication;
 
 @Controller
@@ -18,7 +19,8 @@ public class AdminController {
 
 	@Autowired
 	AdminProductApplication adminProductApplication;
-	
+	@Autowired
+	AdminApplication adminApplication;
 	
 	@RequestMapping("admin")
 	public RedirectView getAdminLogin()
@@ -27,12 +29,29 @@ public class AdminController {
 	}
 	
 	@RequestMapping("admin/verifyLogin")
-	public ModelAndView verifyLogin()
+	public ModelAndView verifyLogin(@RequestParam("username") String username,@RequestParam("password") String password)
 	{
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("USER","nilesh Shinde");
-		mv.setViewName("admin/home");
-		return mv;
+		boolean user = adminApplication.verifyLogin(username,password);
+		if(user)
+			{
+			mv.addObject("USER",username);
+			mv.setViewName("admin/home");
+			return mv;
+			}
+		else {
+			mv.setViewName("admin/login");
+			return mv;
+		}
+	}
+	
+	@RequestMapping("admin/addAdmin")
+	public RedirectView addAdmin(@RequestParam("username") String username,@RequestParam("password") String password)
+	{
+		
+		adminApplication.addAdmin(username,password);
+		
+		return new RedirectView("admin/login.jsp");
 	}
 	
 	

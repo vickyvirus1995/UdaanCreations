@@ -19,6 +19,12 @@
 	</properties>
 
 	<dependencies>
+	<!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
+ <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
+        </dependency>
 	<!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-jasper -->
 <dependency>
     <groupId>org.apache.tomcat</groupId>

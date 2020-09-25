@@ -100,7 +100,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<li class="grid"><a class="color1" href="products">Products</a></li>
 			<li class="grid"><a class="color1" href="sale">Sale</a></li>
 			<li class="grid"><a class="color1" href="#">About Us</a></li>
-			<li class="active grid"><a class="color1" href="contact.html">Contact</a></li>	
+			<li class="active grid"><a class="color1" href="contact">Contact</a></li>	
 			<li class="grid"><a class="color1" href="#">Tutorial</a></li>								
 		</ul>  <div class="search">
 				 <form action="searchProduct" method="get">
@@ -133,11 +133,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="col-md-8 contact-left">
 				<h3>Contact Form</h3>
-				<form>
-					<input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-					<input type="email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-					<input type="text" value="Telephone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Telephone';}" required="">
-					<textarea type="text"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
+				<form action="sendEmail" method="post">
+					<input type="text" name="Name" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+					<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+					<input type="text" name="Mobile" value="Mobile" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mobile';}" required="">
+					<textarea type="text" name="EnquiryMessage" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
 					<input type="submit" value="Submit" >
 				</form>
 			</div>

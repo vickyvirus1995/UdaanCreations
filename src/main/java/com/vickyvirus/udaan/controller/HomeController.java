@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.vickyvirus.udaan.application.ProductApplication;
+import com.vickyvirus.udaan.mail.SendMail;
 
 @Controller
 public class HomeController {
@@ -112,9 +113,21 @@ public class HomeController {
 		return modelAndView;
 	}
 	
-
+	@RequestMapping("sendEmail")
+	public ModelAndView sendEmail(@RequestParam("Name") String name,@RequestParam("Mobile") String mobileNo,@RequestParam("Email") String fromEmail,
+			@RequestParam("EnquiryMessage") String enquiryMessage)
+	{
+		ModelAndView modelAndView = new ModelAndView();
+		SendMail.sendMail(fromEmail, mobileNo, enquiryMessage, name);
+		modelAndView.setViewName("contact");
+		return modelAndView;
+	}
 	
 
-	
+	@RequestMapping("contact")
+	public String getContactPage()
+	{
+		return "contact";
+	}
 	
 }
