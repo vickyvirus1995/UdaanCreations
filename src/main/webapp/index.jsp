@@ -153,7 +153,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="banner-info">
 							<div class="banner-info1">
 							<div class="banner-inf">
-									<h1 style="color:yellow;">Ganesh Chaturthi Offer</h1>
+									<h1 style="color:yellow;	">Diwali Offer</h1>
 									<p style="color:white;font-size:16px;">Special 30% discount on all products on bulk order. Terms and condtion applied</p>
 								</div>
 						</div>
