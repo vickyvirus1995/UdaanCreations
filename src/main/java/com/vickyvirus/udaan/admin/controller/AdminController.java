@@ -51,7 +51,7 @@ public class AdminController {
 		
 		adminApplication.addAdmin(username,password);
 		
-		return "admin";		
+		return "admin/login";		
 	}
 	
 	
