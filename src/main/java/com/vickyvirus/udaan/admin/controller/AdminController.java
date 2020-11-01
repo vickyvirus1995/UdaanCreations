@@ -46,12 +46,14 @@ public class AdminController {
 	}
 	
 	@RequestMapping("admin/addAdmin")
-	public RedirectView addAdmin(@RequestParam("username") String username,@RequestParam("password") String password)
+	public ModelAndView addAdmin(@RequestParam("username") String username,@RequestParam("password") String password)
 	{
 		
 		adminApplication.addAdmin(username,password);
 		
-		return new RedirectView("login.jsp");
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("admin/login");
+		return mv;		
 	}
 	
 	
