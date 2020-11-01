@@ -51,7 +51,7 @@ public class AdminController {
 		
 		adminApplication.addAdmin(username,password);
 		
-		return new RedirectView("admin/login.jsp");
+		return new RedirectView("login.jsp");
 	}
 	
 	
