@@ -52,6 +52,12 @@ public class ProductDaoImpl implements ProductDao{
 		
 	}
 
+	@Override
+	public Product getSelectedProduct(Integer productId) {
+		
+		return productRepository.findById(productId).orElse(null);
+	}
+
 	
 	
 	

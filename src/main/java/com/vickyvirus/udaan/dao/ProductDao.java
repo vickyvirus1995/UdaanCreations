@@ -17,5 +17,7 @@ public interface ProductDao {
 
 	public List<Product> sortByPopularity();
 
+	public Product getSelectedProduct(Integer productId);
+
 	
 }

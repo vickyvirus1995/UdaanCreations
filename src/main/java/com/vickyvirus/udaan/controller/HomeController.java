@@ -5,6 +5,7 @@ import org.apache.jasper.tagplugins.jstl.core.Redirect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
@@ -35,6 +36,19 @@ public class HomeController {
 		modelAndView.setViewName("index");
 		return modelAndView;
 		
+	}
+	
+	@RequestMapping(method = RequestMethod.GET,value="singleProduct")
+	public ModelAndView getSingleProduct(@RequestParam("productId") Integer productId)
+	{
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("SELECTEDRECORDS","9");
+		modelAndView.addObject("SORTTYPE","Default Sorting");
+		modelAndView.addObject("SINGLEPRODUCT",productApplication.getSelectedProduct(productId));
+		modelAndView.addObject("PRODUCTS",productApplication.getAllProducts("9"));
+		modelAndView.setViewName("products");
+		return modelAndView;
 	}
 	
 	@RequestMapping("searchProduct")
@@ -108,6 +122,20 @@ public class HomeController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("SELECTEDRECORDS","9");
 		modelAndView.addObject("SORTTYPE","Default Sorting");
+		modelAndView.addObject("SALESPRODUCTS",productApplication.getAllSalesProducts("9"));
+		modelAndView.setViewName("sale");
+		return modelAndView;
+	}
+	
+
+	@RequestMapping(method = RequestMethod.GET,value="singleSaleProduct")
+	public ModelAndView getSingleSaleProduct(@RequestParam("productId") Integer productId)
+	{
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("SELECTEDRECORDS","9");
+		modelAndView.addObject("SORTTYPE","Default Sorting");
+		modelAndView.addObject("SINGLESALEPRODUCT",productApplication.getSelectedSaleProduct(productId));
 		modelAndView.addObject("SALESPRODUCTS",productApplication.getAllSalesProducts("9"));
 		modelAndView.setViewName("sale");
 		return modelAndView;

@@ -71,5 +71,15 @@ public class ProductApplication {
 		return null;
 	}
 
+	public Product getSelectedProduct(Integer productId) {
+		
+		return productDao.getSelectedProduct(productId);
+	}
+
+	public Sale getSelectedSaleProduct(Integer productId) {
+		
+		return salesProductDao.getSelectedSaleProduct(productId);
+	}
+
 	
 }

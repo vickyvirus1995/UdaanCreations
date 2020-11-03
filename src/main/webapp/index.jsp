@@ -187,9 +187,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							
 				<div class="agile_top_brands_grids">
 					<c:forEach items="${PRODUCTS}" var="product" >
+					<input type="hidden"  value="${product.productId}" name="productId">
+					<form action="single" method="post" name="singleProduct">
+					
 					<div class="col-md-3 top_brand_left-1">
 						<div class="hover14 column">
-			
+					
 							<div class="agile_top_brand_left_grid">
 								<div class="agile_top_brand_left_grid_pos">
 									
@@ -199,7 +202,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<figure>
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
-												<a href="products.html"><img title=" " alt=" " src="Product Images/${product.productImage}" width="150px" height="150px"></a>		
+												<a href="singleProduct?productId=${product.productId}" ><img title=" " alt=" " src="Product Images/${product.productImage}" width="150px" height="150px"></a>		
 													<p style="font-size: 18px;font-weight: bolder;">${product.productName}</p>
 												<h4 style="color:green;font-size: 18px;">$ ${product.productPrice} <span></span></h4>
 											
@@ -212,7 +215,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											
 											</div>
 											
-											</div>
+											</div></form>
 											</c:forEach>
 											</div>
 											</div>
@@ -237,7 +240,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<figure>
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
-												<a href="products.html"><img title=" " alt=" " src="Product Images/${saleProduct.productImage}" width="150px" height="150px"></a>		
+												<a href="singleSaleProduct?productId=${saleProduct.productId}"><img title=" " alt=" " src="Product Images/${saleProduct.productImage}" width="150px" height="150px"></a>		
 												<p style="font-size: 18px;font-weight: bolder;">${saleProduct.productName}</p>
 												<c:choose>
             										<c:when test="${not empty saleProduct.productDiscountedPrice}">

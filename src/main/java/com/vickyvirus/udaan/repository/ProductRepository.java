@@ -29,6 +29,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer>{
 	List<Product> getAllProducts(Integer i);
 
 	List<Product> findByOrderByProductIdDesc();
+
 }
 
 

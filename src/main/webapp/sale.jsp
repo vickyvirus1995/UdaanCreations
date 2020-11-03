@@ -124,9 +124,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 <!-- //banner -->
 <!-- cate -->
-	<!-- //slider -->
+	<!-- //slider --><div align=center><br><br>
+<c:choose>
+            <c:when test="${not empty SINGLESALEPRODUCT.productId}">
+           	<img title=" " alt=" " src="Product Images/${SINGLESALEPRODUCT.productImage}" width="430px" height="430px">		
+			<p style="font-size: 28px;font-weight: bolder;">${SINGLESALEPRODUCT.productName}</p>
+			<c:choose>
+            										<c:when test="${not empty SINGLESALEPRODUCT.productDiscountedPrice}">
+												<h4 style="color:green;font-size: 28px;">$ ${SINGLESALEPRODUCT.productDiscountedPrice} <span style="text-decoration: line-through;">${SINGLESALEPRODUCT.productPrice}</span></h4>
+												</c:when>
+												<c:otherwise>
+												<h4 style="color:green;font-size: 28px;">$ ${SINGLESALEPRODUCT.productPrice} </h4>	
+												</c:otherwise>
+												</c:choose>
+												
+											<span style="font-size: 20px;" id = "offer">${SINGLESALEPRODUCT.productOffer}</span>
+            
+</c:when>
+</c:choose>
 
-
+</div>
 
 <div class="products">
 		<div class="container">
@@ -208,7 +225,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<figure>
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
-												<a href="single.html"><img title=" " alt=" " src="Product Images/${saleProduct.productImage}" width="130px" height="130px"></a>		
+												<a href="singleSaleProduct?productId=${saleProduct.productId}"><img title=" " alt=" " src="Product Images/${saleProduct.productImage}" width="130px" height="130px"></a>		
 												<p style="font-size: 18px;font-weight: bolder;">${saleProduct.productName}</p>
 												<c:choose>
             										<c:when test="${not empty saleProduct.productDiscountedPrice}">

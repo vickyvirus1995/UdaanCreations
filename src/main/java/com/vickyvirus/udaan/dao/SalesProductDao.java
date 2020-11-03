@@ -13,4 +13,6 @@ public interface SalesProductDao {
 	public List<Sale> sortByPrice();
 
 	public List<Sale> sortByPopularity();
+
+	public Sale getSelectedSaleProduct(Integer productId);
 }

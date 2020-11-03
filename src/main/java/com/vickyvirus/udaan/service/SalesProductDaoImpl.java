@@ -46,4 +46,10 @@ public class SalesProductDaoImpl implements SalesProductDao {
 		return saleRepository.findAllByOrderByProductIdDesc();
 	}
 
+	@Override
+	public Sale getSelectedSaleProduct(Integer productId) {
+		
+		return saleRepository.findById(productId).orElse(null);
+	}
+
 }
