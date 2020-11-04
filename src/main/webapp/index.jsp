@@ -202,7 +202,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<figure>
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
-												<a href="singleProduct?productId=${product.productId}" ><img title=" " alt=" "src="src/main/resources/${product.productImage}" width="150px" height="150px"></a>		
+												<a href="singleProduct?productId=${product.productId}" ><img title=" " alt=" "src="www.udaancreations.com/Product Images/${product.productImage}" width="150px" height="150px"></a>		
 													<p style="font-size: 18px;font-weight: bolder;">${product.productName}</p>
 												<h4 style="color:green;font-size: 18px;">$ ${product.productPrice} <span></span></h4>
 											
