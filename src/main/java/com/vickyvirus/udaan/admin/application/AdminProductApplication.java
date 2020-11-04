@@ -22,7 +22,7 @@ public class AdminProductApplication {
 	@Autowired
 	private AdminSaleProductDao adminSaleProductDao;
 	
-	private static String UPLOADED_FOLDER = "src//ProductImages//";
+	private static String UPLOADED_FOLDER = "src//main//java//ProductImages//";
 	
 	
 	
