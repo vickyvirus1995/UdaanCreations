@@ -1,5 +1,6 @@
 package com.vickyvirus.udaan.admin.application;
 
+import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -7,6 +8,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.vickyvirus.udaan.admin.dao.AdminProductDao;
@@ -22,7 +24,7 @@ public class AdminProductApplication {
 	@Autowired
 	private AdminSaleProductDao adminSaleProductDao;
 	
-	private static String UPLOADED_FOLDER = "src//main//java//ProductImages//";
+	private static String UPLOADED_FOLDER = "src//main//webapp//ProductImages//";
 	
 	
 	
@@ -30,11 +32,12 @@ public class AdminProductApplication {
 	public Product addProduct(String productName,String productQuantity,Integer productPrice,MultipartFile productImage)
 	{
 		try {
-					
-			byte[] imageInByte = productImage.getBytes();
 			
-			Path path = Paths.get(UPLOADED_FOLDER + productImage.getOriginalFilename());
-			Files.write(path, imageInByte);
+				
+			byte[] imageInByte = productImage.getBytes();
+			FileCopyUtils.copy(imageInByte, new File("src/main/resources"));
+			//Path path = Paths.get(UPLOADED_FOLDER + productImage.getOriginalFilename());
+			//Files.write(path, imageInByte);
 		}
 		catch(Exception e)
 		{
