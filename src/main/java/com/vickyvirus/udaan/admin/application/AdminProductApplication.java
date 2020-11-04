@@ -35,7 +35,7 @@ public class AdminProductApplication {
 			
 				
 			byte[] imageInByte = productImage.getBytes();
-			FileCopyUtils.copy(imageInByte, new File("src/main/resources"));
+			FileCopyUtils.copy(imageInByte, new File("src/main/resources"+productImage.getOriginalFilename()));
 			//Path path = Paths.get(UPLOADED_FOLDER + productImage.getOriginalFilename());
 			//Files.write(path, imageInByte);
 		}
