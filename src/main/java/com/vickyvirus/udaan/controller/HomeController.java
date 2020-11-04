@@ -88,6 +88,7 @@ public class HomeController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("SELECTEDRECORDS","9");
 		modelAndView.addObject("SORTTYPE","Default Sorting");
+		productApplication.getAllProducts("9").forEach(s-> System.out.println(s.getProductImage().toString()));
 		modelAndView.addObject("PRODUCTS",productApplication.getAllProducts("9"));
 		modelAndView.setViewName("products");
 		return modelAndView;

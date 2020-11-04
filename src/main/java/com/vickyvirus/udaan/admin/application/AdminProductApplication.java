@@ -24,7 +24,7 @@ public class AdminProductApplication {
 	@Autowired
 	private AdminSaleProductDao adminSaleProductDao;
 	
-	private static String UPLOADED_FOLDER = "src//main//webapp//ProductImages//";
+	private static String UPLOADED_FOLDER = "www.udaancreations.com//media//";
 	
 	
 	
@@ -32,12 +32,11 @@ public class AdminProductApplication {
 	public Product addProduct(String productName,String productQuantity,Integer productPrice,MultipartFile productImage)
 	{
 		try {
-			
-				
+					
 			byte[] imageInByte = productImage.getBytes();
-			FileCopyUtils.copy(imageInByte, new File("www.udaancreations.com/ProductImages/"+productImage.getOriginalFilename()));
-			//Path path = Paths.get(UPLOADED_FOLDER + productImage.getOriginalFilename());
-			//Files.write(path, imageInByte);
+			
+			Path path = Paths.get(UPLOADED_FOLDER + productImage.getOriginalFilename());
+			Files.write(path, imageInByte);
 		}
 		catch(Exception e)
 		{
@@ -161,4 +160,4 @@ public class AdminProductApplication {
 	}
 
 	
-}
+}	

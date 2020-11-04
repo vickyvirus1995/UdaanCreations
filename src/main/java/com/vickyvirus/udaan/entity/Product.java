@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
 public class Product {
@@ -18,10 +19,17 @@ public class Product {
 	private String productName;
 	private String productQuantity;
 	private Integer productPrice;
+	
 	private String productImage;
 	
 	
 	
+	public String getProductImage() {
+		return productImage;
+	}
+	public void setProductImage(String productImage) {
+		this.productImage = productImage;
+	}
 	public Integer getProductId() {
 		return productId;
 	}
@@ -47,12 +55,10 @@ public class Product {
 	public void setProductPrice(Integer productPrice) {
 		this.productPrice = productPrice;
 	}
-	public String getProductImage() {
-		return productImage;
-	}
-	public void setProductImage(String productImage) {
-		this.productImage = productImage;
-	}
+	
+	
+	
+	
 	@Override
 	public String toString() {
 		return "Product [productId=" + productId + ", productName=" + productName + ", productQuantity="
