@@ -1,5 +1,7 @@
 package com.vickyvirus.udaan.admin.controller;
 
+import java.util.Base64;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -103,9 +105,19 @@ public class AdminController {
 	@RequestMapping(value= "admin/updateProduct",method = RequestMethod.POST )
 	public RedirectView updateProduct(@RequestParam("productId") Integer productId,@RequestParam("productName")String productName,
 			@RequestParam("productQuantity")String productQuantity,@RequestParam("productPrice")Integer productPrice,
-			@RequestParam("productImage") MultipartFile productImage,HttpServletRequest request)
+			@RequestParam("productImage") MultipartFile productImage,@RequestParam("oldProductImage") String oldProductImage,HttpServletRequest request)
 	{
-		adminProductApplication.updateProduct(productId,productName, productQuantity, productPrice, productImage);
+		
+		if(productImage.isEmpty())
+		{
+			
+			adminProductApplication.updateProduct(productId,productName, productQuantity, productPrice, oldProductImage);
+		}
+		else
+			adminProductApplication.updateProduct(productId,productName, productQuantity, productPrice, productImage);
+		
+		
+		
 		
 		String contextPath = request.getContextPath();
 	    return new RedirectView(contextPath + "adminUpdateProducts");
@@ -177,6 +189,7 @@ public class AdminController {
 			@RequestParam("productImage") String productImage,@RequestParam("productPrice") Integer productPrice,
 			HttpServletRequest request)
 	{
+		
 		adminProductApplication.saveSaleProduct(productName, productPrice,productDiscountedPrice, productImage,productOffer);
 		
 		String contextPath = request.getContextPath();
@@ -208,10 +221,10 @@ public class AdminController {
 	@RequestMapping(value= "admin/updateSaleData",method = RequestMethod.POST )
 	public RedirectView updateSaleData(@RequestParam("productId") Integer productId,@RequestParam("productOffer") String productOffer,@RequestParam("productName")String productName,
 			@RequestParam("productDiscountedPrice")Integer productDiscountedPrice,
-			@RequestParam("productImage") String productImage,@RequestParam("productPrice") Integer productPrice,
+			@RequestParam("productPrice") Integer productPrice,@RequestParam("productImage") String productImage,
 			HttpServletRequest request)
 	{
-		adminProductApplication.updateSaleProduct(productId,productName, productPrice,productDiscountedPrice, productImage,productOffer);
+		adminProductApplication.updateSaleProduct(productId,productName, productPrice,productDiscountedPrice,productOffer,productImage);
 		
 		String contextPath = request.getContextPath();
 	    return new RedirectView(contextPath + "adminUpdateSales");

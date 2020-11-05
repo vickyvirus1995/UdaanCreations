@@ -140,7 +140,7 @@
                 <div class="card-body" style="background: white; height:590px;">
                     <form method="POST" action="updateSaleData" enctype = "multipart/form-data">
                         <input type="hidden"  value="${SELECTEDSALE.productId}" name="productId">
-                        <input type="hidden"  value="${SELECTEDSALE.productImage}" name="productImage">
+                        <input type="hidden"  value="${SELECTEDSALE.saleBase64Image}" name="productImage">
                         <div class="form-row">
                             <div class="name">Product Name</div>
                             <div>
@@ -162,7 +162,7 @@
                             <div >
                                 
                             </div>
-                             <img style="padding-left: 5px;" src="../Product Images/${SELECTEDSALE.productImage}" width="70px;" height="70px;">
+                             <img style="padding-left: 5px;" src="data:image/jpg;base64,${SELECTEDSALE.saleBase64Image}" width="70px;" height="70px;">
                         </div>
              
                         <div class="form-row">
@@ -216,7 +216,7 @@
 									<figure>
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
-												<a href="single.html"><img title=" " alt=" " src="../Product Images/${product.productImage}" width="120px" height="120px"></a>		
+												<a href="single.html"><img title=" " alt=" " src="data:image/jpg;base64,${product.saleBase64Image}" width="120px" height="120px"></a>		
 												<p style="font-size: 18px;font-weight: bolder;background: white;color:red;">${product.productName}</p>
 												<h4 style="color:green;font-size: 18px;">$ ${product.productDiscountedPrice} <span>$ ${product.productPrice}</span></h4>
 												<span>${product.productOffer}</span>

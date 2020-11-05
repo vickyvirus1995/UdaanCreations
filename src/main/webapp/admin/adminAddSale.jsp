@@ -138,9 +138,9 @@
                     <h2 class="title">Udaan Add Sale Product Database</h2>
                 </div>
                 <div class="card-body" style="background: white; height:590px;">
-                    <form method="POST" action="saveSaleData" enctype = "multipart/form-data">
+                    <form method="POST" action="saveSaleData" >
                         <input type="hidden"  value="${SELECTEDPRODUCT.productId}" name="productId">
-                        <input type="hidden"  value="${SELECTEDPRODUCT.productImage}" name="productImage">
+                        <input type="hidden" value="${SELECTEDPRODUCT.productBase64Image}" name="productImage">
                         <div class="form-row">
                             <div class="name">Product Name</div>
                             <div>
@@ -164,7 +164,7 @@
                                     
                                 </div>
                             </div>
-                            <img style="padding-left: 5px;" src="../Product Images/${SELECTEDPRODUCT.productImage}" width="70px;" height="70px;">
+                            <img style="padding-left: 5px;"  src="data:image/jpg;base64,${SELECTEDPRODUCT.productBase64Image}" width="70px;" height="70px;" >
                         </div>
                         <div class="form-row">
                         <div class="name">Discounted Price</div>
@@ -217,7 +217,7 @@
 									<figure>
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
-												<a href="single.html"><img title=" " alt=" " src="../Product Images/${product.productImage}" width="120px" height="120px"></a>		
+												<a href="single.html"><img title=" " alt=" " src="data:image/jpg;base64,${product.productBase64Image}" width="120px" height="120px"></a>		
 												<p style="font-size: 18px;font-weight: bolder;background: white;color:red;">${product.productName}</p>
 												<h4 style="color:green;font-size: 18px;">$ ${product.productPrice} <span></span></h4>
 												

@@ -125,7 +125,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //slider --><div align=center><br><br>
 <c:choose>
             <c:when test="${not empty SINGLEPRODUCT.productId}">
-           	<img title=" " alt=" "src="src/main/resources/${SINGLEPRODUCT.productImage}" width="430px" height="430px">		
+           	<img title=" " alt=" "src="data:image/jpg;base64,${SINGLEPRODUCT.productBase64Image}" width="430px" height="430px">		
 												<p style="font-size: 28px;font-weight: bolder;">${SINGLEPRODUCT.productName}</p>
 												<h4 style="color:green;font-size: 28px;">$ ${SINGLEPRODUCT.productPrice} <span></span></h4>
 											
@@ -218,7 +218,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
 											
-												<a href="singleProduct?productId=${product.productId}" ><img title=" " alt=" "src="src/main/resources/${product.productImage}" width="130px" height="130px"></a>		
+												<a href="singleProduct?productId=${product.productId}" ><img title=" " alt=" "src="data:image/jpg;base64,${product.productBase64Image}" width="130px" height="130px"></a>		
 												<p style="font-size: 18px;font-weight: bolder;">${product.productName}</p>
 												<h4 style="color:green;font-size: 18px;">$ ${product.productPrice} <span></span></h4>
 											

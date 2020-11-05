@@ -4,6 +4,7 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Base64;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,29 +25,31 @@ public class AdminProductApplication {
 	@Autowired
 	private AdminSaleProductDao adminSaleProductDao;
 	
-	private static String UPLOADED_FOLDER = "www.udaancreations.com//media//";
-	
-	
+	public byte[] base64ToBytes(String base64Image)
+	{
+		return Base64.getDecoder().decode(new String(base64Image).getBytes());
+	}
 	
 	
 	public Product addProduct(String productName,String productQuantity,Integer productPrice,MultipartFile productImage)
 	{
+		Product product = new Product();
 		try {
-					
-			byte[] imageInByte = productImage.getBytes();
 			
-			Path path = Paths.get(UPLOADED_FOLDER + productImage.getOriginalFilename());
-			Files.write(path, imageInByte);
+				
+	
+			product.setProductName(productName);
+			product.setProductQuantity(productQuantity);
+			product.setProductPrice(productPrice);
+		
+			product.setProductImage(productImage.getBytes());
+		
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-			Product product = new Product();
-			product.setProductName(productName);
-			product.setProductQuantity(productQuantity);
-			product.setProductPrice(productPrice);
-			product.setProductImage(productImage.getOriginalFilename());
+		
 			
 			Product check_product = adminProductDao.addProduct(product);
 			
@@ -61,11 +64,17 @@ public class AdminProductApplication {
 
 	public Product addProductForEdit(String name, String quantity, Integer price, MultipartFile image) {
 		Product product = new Product();
+		try {
+		
 		product.setProductName(name);
 		product.setProductQuantity(quantity);
 		product.setProductPrice(price);
-		product.setProductImage(image.getOriginalFilename());
-		
+		product.setProductImage(image.getBytes());
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 		return product;
 	}
 
@@ -82,23 +91,21 @@ public class AdminProductApplication {
 	public void updateProduct(Integer productId, String productName, String productQuantity, Integer productPrice,
 			MultipartFile productImage) {
 		
+		Product product = new Product();
 		try {
 			
-			byte[] imageInByte = productImage.getBytes();
+			product.setProductId(productId);
+			product.setProductName(productName);
+			product.setProductQuantity(productQuantity);
+			product.setProductPrice(productPrice);
+			product.setProductImage(productImage.getBytes());
 			
-			Path path = Paths.get(UPLOADED_FOLDER + productImage.getOriginalFilename());
-			Files.write(path, imageInByte);
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-			Product product = new Product();
-			product.setProductId(productId);
-			product.setProductName(productName);
-			product.setProductQuantity(productQuantity);
-			product.setProductPrice(productPrice);
-			product.setProductImage(productImage.getOriginalFilename());
+			
 			
 			adminProductDao.updateProduct(product);
 			
@@ -106,6 +113,19 @@ public class AdminProductApplication {
 		
 	}
 
+	public void updateProduct(Integer productId, String productName, String productQuantity, Integer productPrice,
+			String oldProductImage) {
+		
+		Product product = new Product();
+	
+			product.setProductId(productId);
+			product.setProductName(productName);
+			product.setProductQuantity(productQuantity);
+			product.setProductPrice(productPrice);
+			product.setProductImage(base64ToBytes(oldProductImage));
+			adminProductDao.updateProduct(product);
+	}
+	
 	public void deleteProduct(Integer productId) {
 		adminProductDao.deleteProduct(productId);
 		
@@ -113,14 +133,18 @@ public class AdminProductApplication {
 
 	public void saveSaleProduct(String productName, Integer productPrice,
 			Integer productDiscountedPrice, String productImage,String productOffer) {
+		try {
+			
 		Sale sale = new Sale();
 		sale.setProductName(productName);
 		sale.setProductPrice(productPrice);
 		sale.setProductDiscountedPrice(productDiscountedPrice);
 		sale.setProductOffer(productOffer);
-		sale.setProductImage(productImage);
+		sale.setProductImage(base64ToBytes(productImage));
 		
 		adminSaleProductDao.saveSaleProduct(sale);
+		}catch(Exception e)
+		{ e.printStackTrace();}
 		
 	}
 
@@ -140,7 +164,7 @@ public class AdminProductApplication {
 	}
 
 	public void updateSaleProduct(Integer productId,String productName, Integer productPrice, Integer productDiscountedPrice,
-			String productImage, String productOffer) {
+			String productOffer,String productImage) {
 		
 		Sale sale = new Sale();
 		sale.setProductId(productId);
@@ -148,7 +172,8 @@ public class AdminProductApplication {
 		sale.setProductPrice(productPrice);
 		sale.setProductDiscountedPrice(productDiscountedPrice);
 		sale.setProductOffer(productOffer);
-		sale.setProductImage(productImage);
+		sale.setProductImage(base64ToBytes(productImage));
+		
 		
 		adminSaleProductDao.updateSaleProduct(sale);
 		
@@ -159,5 +184,8 @@ public class AdminProductApplication {
 		
 	}
 
+
 	
-}	
+
+	
+}

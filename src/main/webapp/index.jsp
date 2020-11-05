@@ -202,7 +202,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<figure>
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
-												<a href="singleProduct?productId=${product.productId}" ><img title=" " alt=" "src="data:image/jpeg;base64,new String(${product.productImage})" width="150px" height="150px"></a>		
+												<a href="singleProduct?productId=${product.productId}" ><img title=" " alt=" "src="data:image/jpg;base64,${product.productBase64Image}" width="150px" height="150px"></a>		
 													<p style="font-size: 18px;font-weight: bolder;">${product.productName}</p>
 												<h4 style="color:green;font-size: 18px;">$ ${product.productPrice} <span></span></h4>
 											
@@ -240,7 +240,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<figure>
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
-												<a href="singleSaleProduct?productId=${saleProduct.productId}"><img title=" " alt=" "src="src/main/resources/${saleProduct.productImage}" width="150px" height="150px"></a>		
+												<a href="singleSaleProduct?productId=${saleProduct.productId}"><img title=" " alt=" "src="data:image/jpg;base64,${saleProduct.saleBase64Image}" width="150px" height="150px"></a>		
 												<p style="font-size: 18px;font-weight: bolder;">${saleProduct.productName}</p>
 												<c:choose>
             										<c:when test="${not empty saleProduct.productDiscountedPrice}">

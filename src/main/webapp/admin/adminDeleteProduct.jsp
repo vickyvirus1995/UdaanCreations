@@ -169,7 +169,7 @@
                             <div >
                                 
                             </div>
-                            <img style="padding-left: 5px;" src="../Product Images/${SELECTEDPRODUCT.productImage}" width="80px;" height="100px;">
+                            <img style="padding-left: 5px;" src="data:image/jpg;base64,${SELECTEDPRODUCT.productBase64Image}" width="80px;" height="100px;">
                         </div>
                                                 <div>
                             <button class="btn btn--radius-2 btn--red" type="submit">Delete Product</button>
@@ -209,7 +209,7 @@
 									<figure>
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
-												<a href="single.html"><img title=" " alt=" " src="../Product Images/${product.productImage}" width="120px" height="120px"></a>		
+												<a href="single.html"><img title=" " alt=" " src="data:image/jpg;base64,${product.productBase64Image}" width="120px" height="120px"></a>		
 												<p style="font-size: 18px;font-weight: bolder;background: white;color:red;">${product.productName}</p>
 												<h4 style="color:green;font-size: 18px;">$ ${product.productPrice} <span></span></h4>
 																	<h4 style="color:purple; font-size: 18px;font-weight: bold;">Qty : ${product.productQuantity} <span></span></h4>

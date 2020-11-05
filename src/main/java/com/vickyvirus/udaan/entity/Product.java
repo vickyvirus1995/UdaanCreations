@@ -1,6 +1,7 @@
 package com.vickyvirus.udaan.entity;
 
 import java.io.File;
+import java.util.Base64;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.Transient;
 
 @Entity
 public class Product {
@@ -19,17 +21,23 @@ public class Product {
 	private String productName;
 	private String productQuantity;
 	private Integer productPrice;
-	
-	private String productImage;
-	
-	
-	
-	public String getProductImage() {
-		return productImage;
+	@Lob
+	private byte[] productImage;
+	@Transient
+	private String productBase64Image;
+    
+	@Transient
+    public String getProductBase64Image() {
+    	productBase64Image = Base64.getEncoder().encodeToString(this.productImage);
+    	return productBase64Image;
 	}
-	public void setProductImage(String productImage) {
-		this.productImage = productImage;
+
+	public void setProductBase64Image(String productBase64Image) {
+		this.productBase64Image = productBase64Image;
 	}
+
+	
+	
 	public Integer getProductId() {
 		return productId;
 	}
@@ -58,7 +66,12 @@ public class Product {
 	
 	
 	
-	
+	public byte[] getProductImage() {
+		return productImage;
+	}
+	public void setProductImage(byte[] bs) {
+		this.productImage = bs;
+	}
 	@Override
 	public String toString() {
 		return "Product [productId=" + productId + ", productName=" + productName + ", productQuantity="
